@@ -978,7 +978,7 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Estimating-$\pi$-for-fun-(Part-1:-the-basis)"&gt;Estimating $\pi$ for fun (Part 1: the basis)&lt;a class="anchor-link" href="#Estimating-$\pi$-for-fun-(Part-1:-the-basis)"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The proposed project in this article is an example I tend to use in my Python introductory courses. The purpose is to calculate a dummy PI estimation based on a damn simple &lt;a href="https://en.wikipedia.org/wiki/Monte_Carlo_algorithm"&gt;Monte Carlo&lt;/a&gt; algorithm.&lt;/p&gt;
 &lt;p&gt;It’s a simple and fun example that can be approached in a really direct and simple way, but that can be improved in  many ways.&lt;/p&gt;
-&lt;p&gt;&lt;img src="/images/darts_pi.svg" , width="50%" , align="left"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/darts_pi.svg" , width="50%" , align="left"&gt;&lt;/p&gt;
 &lt;p&gt;Let's start by imagining a blind darts player.&lt;/p&gt;
 &lt;p&gt;If we assume he performs completely random shots, the ratio between the darts inside a unit circle target and the corresponding unit square target will be equal to the ratio between the well known areas of the unit square and the unit circle:&lt;/p&gt;
 \begin{equation*}

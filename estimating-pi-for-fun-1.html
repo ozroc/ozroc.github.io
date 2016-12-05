@@ -1,43 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8" />
-        <title>Estimating PI for fun (Part 1: the basics)</title>
-        <link rel="stylesheet" href="./theme/css/main.css" />
-        <link href="http://ozroc.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Awesome Adventures of a Drinking Bird Atom Feed" />
 
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-</head>
+<!DOCTYPE HTML>
+<!--
+	Dopetrope 2.0 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+			<title>The Awesome Adventures of a Drinking Bird</title>
+			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+			<meta charset="utf-8" />
+			<link href="http://ozroc.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Awesome Adventures of a Drinking Bird Full Atom Feed" />
+			<link href="http://ozroc.github.io/feeds/posts.atom.xml" type="application/atom+xml" rel="alternate" title="The Awesome Adventures of a Drinking Bird Categories Atom Feed" />
+			<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic" rel="stylesheet" />
+				<link rel="stylesheet" href="/theme/css/pygment.css" />
+			<noscript>
+				<link rel="stylesheet" href="/theme/css/skel-noscript.css" />
+				<link rel="stylesheet" href="/theme/css/style.css" />
+				<link rel="stylesheet" href="/theme/css/style-desktop.css" />
+			</noscript>
+	</head>
+	<body class="no-sidebar">
+		<!-- Header Wrapper -->
+			<div id="header-wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="12u">
+						
+							<!-- Header -->
+								<section id="header">
+									
+									<!-- Logo -->
+									<h1><a href="./">The Awesome Adventures of a Drinking Bird</a></h1>
+									
+									<!-- Nav -->
+										<nav id="nav">
+											<ul>
+											</ul>
+										</nav>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="./">The Awesome Adventures of a Drinking Bird </a></h1>
-                <nav><ul>
-                    <li class="active"><a href="./category/posts.html">posts</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="./estimating-pi-for-fun-1.html" rel="bookmark"
-           title="Permalink to Estimating PI for fun (Part 1: the basics)">Estimating PI for fun (Part 1: the basics)</a></h1>
-    </header>
+								</section>
 
-    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-12-05T15:00:00+01:00">
-                Published: lun 05 diciembre 2016
-        </abbr>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		<!-- Main Wrapper -->
+			<div id="main-wrapper">
+				<div class="container">
+<div class="row">
+	<div class="12u">
+			<section>
+				<div>
+					<div class="row">
+						<div class="12u skel-cell-mainContent">
+							<!-- Content -->
+								<article class="box is-post">
+									<div class="post-infos">
+										<ul class="tags">
+											<li><a class="button" href="category/posts.html">Posts</a></li>
+												<li><a class="button button-alt" href="tag/python-firsts.html">Python firsts</a></li>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/pablo-manuel-garcia-corzo.html">Pablo Manuel García Corzo</a>
-        </address>
-<p>In <a href="./category/posts.html">posts</a>.</p>
-<p>tags: <a href="./tag/python-firsts.html">python firsts</a> <a href="./tag/tutorial.html">tutorial</a> <a href="./tag/monte-carlo.html">Monte Carlo</a> </p>
-</footer><!-- /.post-info -->      <style type="text/css">/*!
+												<li><a class="button button-alt" href="tag/tutorial.html">Tutorial</a></li>
+
+												<li><a class="button button-alt" href="tag/monte-carlo.html">Monte carlo</a></li>
+
+										</ul>
+									</div>
+
+									<div class="pennant pennant-alt date">2016-12-05</div>
+									<h2>Estimating PI for fun (Part 1: the basics)</h2>
+									<style type="text/css">/*!
 *
 * IPython notebook
 *
@@ -1016,7 +1050,7 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Estimating-$\pi$-for-fun-(Part-1:-the-basis)">Estimating $\pi$ for fun (Part 1: the basis)<a class="anchor-link" href="#Estimating-$\pi$-for-fun-(Part-1:-the-basis)">¶</a></h1><p>The proposed project in this article is an example I tend to use in my Python introductory courses. The purpose is to calculate a dummy PI estimation based on a damn simple <a href="https://en.wikipedia.org/wiki/Monte_Carlo_algorithm">Monte Carlo</a> algorithm.</p>
 <p>It’s a simple and fun example that can be approached in a really direct and simple way, but that can be improved in  many ways.</p>
-<p><img src="/images/darts_pi.svg" , width="50%" , align="left"></p>
+<p><img src="images/darts_pi.svg" , width="50%" , align="left"></p>
 <p>Let's start by imagining a blind darts player.</p>
 <p>If we assume he performs completely random shots, the ratio between the darts inside a unit circle target and the corresponding unit square target will be equal to the ratio between the well known areas of the unit square and the unit circle:</p>
 \begin{equation*}
@@ -1184,38 +1218,106 @@ h6:hover .anchor-link {
 }
 </script>
 
-    </div><!-- /.entry-content -->
+								</article>
+						</div>
+					</div>
+				</div>
+			</section>
+	</div>
+</div>
 
-  </article>
-</section>
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="http://ozroc.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+				</div>
+			</div>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+		<!-- Footer Wrapper -->
+			<div id="footer-wrapper">
+				<!-- Footer -->
+					<section id="footer" class="container">
+						<div class="row">
+							<div class="8u">
+								<section>
+									<header>
+										<h2>Latest articles</h2>
+									</header>
+									<ul class="dates">
+										<li>
+											<span class="date">dic <strong>05</strong></span>
+											<h3><a href="estimating-pi-for-fun-1.html">Estimating PI for fun (Part 1: the basics)</a></h3>
+											<p>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Estimating-$\pi$-for-fun-(Part-1:-the-basis)">Estimating $\pi$ for fun (Part 1: the basis)<a class="anchor-link" href="#Estimating-$\pi$-for-fun-(Part-1:-the-basis)">¶</a></h1><p>The proposed project in this article is an example I tend to use in my Python introductory courses. The purpose is to calculate a dummy PI estimation based on a damn simple <a href="https://en.wikipedia.org/wiki/Monte_Carlo_algorithm">Monte Carlo</a> algorithm.</p>
+<p>It’s a simple and fun example that can be approached in a really direct and simple way, but that can be improved in  many ways.</p></p>
+										</li>
+									</ul>
+								</section>
+							</div>
+								<div class="4u">
+									<section>
+										<header>
+											<h2>What's this all about?</h2>
+										</header>
+											<img src="./images/about.jpg" class="image image-full" alt="" />
+										<p>
+										As a physicist, I started my career at the Nuclear Physics Group in the Universidad Complutense de Madrid where I became interested in the technical part of the work, linked to computational physics and Linux systems management.
+In 2012 I left the academic world and I started working for BlueTC as an external consultant in Ericsson R&D. There I began to develop my activity mainly as a Python developer of automation systems and testing facilities for continuous integration. In December 2014 I joined BlueTC's Solutions area, where I started working on projects related to Openstack, NFV/SDN and integrating analytics solutions with traditional monitoring environments.
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
-</body>
+										</p>
+										<footer>
+										</footer>
+									</section>
+								</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<section>
+									<header>
+										<h2>Blogroll</h2>
+									</header>
+									<ul class="divided">
+											<li><a href="http://bluetc.es/en/sharing-and-engaging/a-telecoms-blog/blogger/listings/pablo-garcia">A Telecom's Blog</a></li>
+									</ul>
+								</section>
+							</div>
+							<div class="4u">
+								<section>
+									<header>
+										<h2>Categories</h2>
+									</header>
+									<ul class="divided">
+											<li><a href="./category/posts.html">posts</a></li>
+									</ul>
+								</section>
+							</div>
+							<div class="4u">
+							
+								<section>
+									<header>
+										<h2>Contact</h2>
+									</header>
+									<ul class="social">
+											<li class="twitter"><a href="http://twitter.com/PablomgcBlue" class="icon48 icon48-2">Twitter</a></li>
+										<li class="linkedin"><a href="http://www.linkedin.com/pub/pablomgc" class="icon48 icon48-4">LinkedIn</a></li>
+									</ul>
+									<ul class="contact">
+											<li>
+												<h3>Mail</h3>
+												<p><a href="mailto:pablo.manuel.garcia@blue-tc.com">pablo.manuel.garcia@blue-tc.com</a></p>
+											</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+			</div>
+		<script src="/theme/js/jquery.min.js"></script>
+		<script src="/theme/js/jquery.dropotron.js"></script>
+		<script src="/theme/js/config.js"></script>
+		<script src="/theme/js/skel.min.js"></script>
+		<script src="/theme/js/skel-panels.min.js"></script>
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
+	</body>
 </html>
