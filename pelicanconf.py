@@ -35,8 +35,8 @@ LINKS = (("A Telecom's Blog", 'http://bluetc.es/en/sharing-and-engaging/a-teleco
          )
 
 # Social widget
-#SOCIAL = (('You can add links in your config file', '#'),
-#          ('Another social link', '#'),)
+SOCIAL = (('RSS', '/feeds/all.rss.xml'),
+          ('ATOM', '/feeds/all.atom.xml'),)
 
 MAIL = 'pablo.manuel.garcia@blue-tc.com'
 

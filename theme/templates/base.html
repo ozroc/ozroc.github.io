@@ -128,7 +128,7 @@
 							<div class="8u">
 								<section>
 									<header>
-										<h2>Latest articles</h2>
+										<h2>Latest articles</a></h2>
 									</header>
 									<ul class="dates">
 									{% for article in articles[0:4] %}
@@ -137,7 +137,12 @@
 											<h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>{{ article.author }}
 											<p>{{ article.summary }}</p>
 											<br>
+											{% if article and article.link %}
+											<a href="{{ article.link }}" class="button-mini button-icon button-icon-3">Follow Link</a>
+											{% else %}
 											<a href="{{ SITEURL }}/{{ article.url }}" class="button-mini button-icon button-icon-1">Continue Reading</a>
+											{% endif %}
+											
 										</li>
 									{% endfor %}
 									</ul>
@@ -159,7 +164,7 @@
 										</p>
 																			<ul class="social">
 									  {% if MAIL %}
-									  <li class="mail"><a href="mailto:{{ MAIL }}" class="icon48 icon48-7"><img src="images/internet-mail-300px.png", width=200px></a></li>
+									  <li class="mail"><a href="mailto:{{ MAIL }}" class="icon48 icon48-7">MAIL</a></li>
 									  {% endif %}
 									  {% if FACEBOOK_USER %}
 									  <li class="facebook"><a href="https://www.facebook.com/{{ FACEBOOK_USER }}" class="icon48 icon48-1">Facebook</a></li>
@@ -232,8 +237,12 @@
 							<div class="4u">
 							
 								<section>
-									<header>
-									</header>
+								  <header>
+								    <a href="{{ SITEURL }}/feeds/all.rss.xml"><img src="{{ SITEURL }}/theme/css/images/rss.png" alt="Subscribe via RSS"></a>
+								    <br>
+								    <a href="{{ SITEURL }}/feeds/all.atom.xml"><img src="{{ SITEURL }}/theme/css/images/atom.png" alt="Subscribe via ATOM">
+								      
+								  </header>
 								</section>
 							</div>
 						</div>

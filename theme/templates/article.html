@@ -26,6 +26,11 @@
 									<div class="pennant pennant-alt date">{{ article.date|strftime('%Y-%m-%d') }}</div>
 									<h2>{{ article.title }}</h2>
 									{{ article.content }}
+
+									{% if article and article.link %}
+									<a href="{{ article.link }}" class="button button-icon button-icon-3">Follow Link to External Site</a>
+									{% endif %}
+
 									
 									{% if article.share_post and article.status != 'draft' %}
 									<section>

@@ -24,7 +24,11 @@
                         </header>
                         <p>{{ article.summary }}<p>
                         <footer class="actions">
-                            <a href="{{ SITEURL }}/{{ article.url }}" class="button button-icon button-icon-1">Continue Reading</a>
+			  {% if article and article.link %}
+			  <a href="{{ article.link }}" class="button button-icon button-icon-3">Follow Link</a>
+			  {% else %}
+			  <a href="{{ SITEURL }}/{{ article.url }}" class="button button-icon button-icon-1">Continue Reading</a>
+			  {% endif %}
                         </footer>
                     </section>
                 </div>
