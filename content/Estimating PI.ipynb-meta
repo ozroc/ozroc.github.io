@@ -5,4 +5,5 @@ Category: posts
 Tags: python firsts, tutorial, Monte Carlo
 share_post: true
 Author: Pablo Manuel García Corzo
+picture: /images/darts_pi.svg
 Summary: Estimating pi with a simple MonteCarlo method.

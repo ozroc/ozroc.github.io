@@ -143,33 +143,49 @@
 
 	/* Button */
 		
-		.button
-		{
-			display: inline-block;
-			text-decoration: none;
-			cursor: pointer;
-			border: 0;
-			border-radius: 5px;
-			background: #2323d5;
-			color: #fff !important;
-			font-weight: 700;
-			outline: 0;
-			-moz-transition: background-color .25s ease-in-out;
-			-webkit-transition: background-color .25s ease-in-out;
-			-o-transition: background-color .25s ease-in-out;
-			-ms-transition: background-color .25s ease-in-out;
-			transition: background-color .25s ease-in-out;
-		}
-
-			.button:hover
+			.button-mini
 			{
-				background: #3399e5;
+			    display: inline-block;
+			    text-decoration: none;
+			    cursor: pointer;
+			    border: 0;
+			    border-radius: 5px;
+			    color: #fff !important;
+			    font-weight: 300;
+			    outline: 0;
+			    -moz-transition: background-color .25s ease-in-out;
+			    -webkit-transition: background-color .25s ease-in-out;
+			    -o-transition: background-color .25s ease-in-out;
+			    -ms-transition: background-color .25s ease-in-out;
+			    transition: background-color .25s ease-in-out;
+			}
+			.button
+			{
+			    display: inline-block;
+			    text-decoration: none;
+			    cursor: pointer;
+			    border: 0;
+			    border-radius: 5px;
+			    background: #2323d5;
+			    color: #fff !important;
+			    font-weight: 700;
+			    outline: 0;
+			    -moz-transition: background-color .25s ease-in-out;
+			    -webkit-transition: background-color .25s ease-in-out;
+			    -o-transition: background-color .25s ease-in-out;
+			    -ms-transition: background-color .25s ease-in-out;
+			    transition: background-color .25s ease-in-out;
 			}
 			
+			.button:hover
+				    {
+					background: #3399e5;
+				    }
+			
 			.button:active
-			{
-				background: #1349c5;
-			}
+				    {
+					background: #1349c5;
+				    }
 		
 			.button-alt
 			{
@@ -210,7 +226,8 @@
 				.button-icon-4:before	{ background-position: -96px 0px;	}
 				.button-icon-5:before	{ background-position: -128px 0px;	}
 
-	/* Icon */
+				
+				/* Icon */
 
 		.icon48
 		{

@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Pablo Manuel Garc\xeda Corzo'
 SITENAME = u'The Awesome Adventures of a Drinking Bird'
-SITEURL = ''
+SITEURL = 'http://localhost:8000'
 
 PATH = 'content'
 
@@ -21,7 +21,7 @@ AUTHOR_FEED_RSS = None
 
 
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
+RELATIVE_URLS = False
 
 MARKUP = ('md', 'ipynb')
 
@@ -44,7 +44,7 @@ TWITTER_USER = 'PablomgcBlue'
 
 #LINKEDIN_USER = 'in/pablomgc'
 
-ABOUT_IMAGE = "images/about.jpg"
+#ABOUT_IMAGE = "images/about.jpg"
 
 #ABOUT_LINK = ""
 
@@ -59,3 +59,5 @@ DEFAULT_PAGINATION = 10
 DISPLAY_CATEGORIES_ON_MENU = True
 
 DISQUS_SITENAME = 'ozroc'
+
+COPYRIGHT='Pablo Manuel García Corzo. Built using <a href="https://github.com/getpelican/pelican/">Pelican</a> and based on <a href="https://github.com/PierrePaul/html5-dopetrope">html5-dopetrope</a> theme:'

@@ -136,6 +136,8 @@
 											<a href="{{ article.url }}"><span class="date">{{ article.date|strftime('%b') }} <strong>{{ article.date|strftime('%d') }}</strong></span></a>
 											<h3><a href="{{ article.url }}">{{ article.title }}</a></h3>{{ article.author }}
 											<p>{{ article.summary }}</p>
+											<br>
+											<a href="{{ SITEURL }}/{{ article.url }}" class="button-mini button-icon button-icon-1">Continue Reading</a>
 										</li>
 									{% endfor %}
 									</ul>
@@ -145,16 +147,52 @@
 								<div class="4u">
 									<section>
 										<header>
-											<h2>About</h2>
+											<h2>Author</h2>
 										</header>
-										{% if ABOUT_LINK is defined %}
+										{% if ABOUT_LINK is defined and ABOUT_IMAGE is defined %}
 											<a href="{{ ABOUT_LINK }}" class="image image-full"><img src="{{ SITEURL }}/{{ ABOUT_IMAGE }}" alt="" /></a>
-										{% else %}
+										{% elif ABOUT_IMAGE is defined %}
 											<img src="{{ SITEURL }}/{{ ABOUT_IMAGE }}" class="image image-full" alt="" />
 										{% endif %}
 										<p>
 										{{ ABOUT_TEXT }}
 										</p>
+																			<ul class="social">
+									  {% if MAIL %}
+									  <li class="mail"><a href="mailto:{{ MAIL }}" class="icon48 icon48-7"><img src="images/internet-mail-300px.png", width=200px></a></li>
+									  {% endif %}
+									  {% if FACEBOOK_USER %}
+									  <li class="facebook"><a href="https://www.facebook.com/{{ FACEBOOK_USER }}" class="icon48 icon48-1">Facebook</a></li>
+									  {% endif %}
+									  {% if TWITTER_USER is defined %}
+									  <li class="twitter"><a href="http://twitter.com/{{ TWITTER_USER }}" class="icon48 icon48-2">Twitter</a></li>
+									  {% endif %}
+									  {% if LINKEDIN_USER %}
+									  <li class="linkedin"><a href="http://www.linkedin.com/pub/{{ LINKEDIN_USER }}" class="icon48 icon48-4">LinkedIn</a></li>
+									  {% endif %}
+									  {% if GOOGLEPLUS_USER %}
+									  <li class="googleplus"><a href="https://plus.google.com/{{ GOOGLEPLUS_USER }}" class="icon48 icon48-6">Google+</a></li>
+									  {% endif %}
+									</ul>
+									{% if ADDRESS is defined or PHONE is defined %}
+									<ul class="contact">
+										{% if ADDRESS is defined %}
+										<li>
+											<h3>Address</h3>
+											<p>
+												{{ ADDRESS }}
+											</p>
+										</li>
+										{% endif %}
+										{% if PHONE %}
+											<li>
+												<h3>Phone</h3>
+												<p>{{ PHONE }}</p>
+											</li>
+										{% endif %}
+									</ul>
+									{% endif %}
+
 										<footer>
 											{% if ABOUT_LINK is defined %}
 												<a href="{{ ABOUT_LINK }}" class="button">Find out more</a>
@@ -196,41 +234,6 @@
 								<section>
 									<header>
 									</header>
-									<ul class="social">
-									  {% if MAIL %}
-									  <li class="mail"><a href="mailto:{{ MAIL }}" class="icon48 icon48-7"><img src="images/internet-mail-300px.png", width=200px></a></li>
-									  {% endif %}
-									  {% if FACEBOOK_USER %}
-									  <li class="facebook"><a href="https://www.facebook.com/{{ FACEBOOK_USER }}" class="icon48 icon48-1">Facebook</a></li>
-									  {% endif %}
-									  {% if TWITTER_USER is defined %}
-									  <li class="twitter"><a href="http://twitter.com/{{ TWITTER_USER }}" class="icon48 icon48-2">Twitter</a></li>
-									  {% endif %}
-									  {% if LINKEDIN_USER %}
-									  <li class="linkedin"><a href="http://www.linkedin.com/pub/{{ LINKEDIN_USER }}" class="icon48 icon48-4">LinkedIn</a></li>
-									  {% endif %}
-									  {% if GOOGLEPLUS_USER %}
-									  <li class="googleplus"><a href="https://plus.google.com/{{ GOOGLEPLUS_USER }}" class="icon48 icon48-6">Google+</a></li>
-									  {% endif %}
-									</ul>
-									{% if ADDRESS is defined or PHONE is defined %}
-									<ul class="contact">
-										{% if ADDRESS is defined %}
-										<li>
-											<h3>Address</h3>
-											<p>
-												{{ ADDRESS }}
-											</p>
-										</li>
-										{% endif %}
-										{% if PHONE %}
-											<li>
-												<h3>Phone</h3>
-												<p>{{ PHONE }}</p>
-											</li>
-										{% endif %}
-									</ul>
-									{% endif %}
 								</section>
 							</div>
 						</div>
