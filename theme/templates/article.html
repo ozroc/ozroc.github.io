@@ -24,9 +24,25 @@
 									</div>
 
 									<div class="pennant pennant-alt date">{{ article.date|strftime('%Y-%m-%d') }}</div>
-
 									<h2>{{ article.title }}</h2>
 									{{ article.content }}
+									
+									{% if article.share_post and article.status != 'draft' %}
+									<section>
+									  <p>
+									    Share on:
+									    <ul class="social">
+									    									    
+									      <li class="twitter"><a href="{{article.share_post['twitter']}}" class="icon48 icon48-2">Twitter</a></li>
+									      <li class="linkedin"><a href="{{article.share_post['linkedin']}}" class="icon48 icon48-4">LinkedIn</a></li>
+									      <li class="googleplus"><a href="{{article.share_post['google-plus']}}" class="icon48 icon48-6">Google Plus</a></li>
+									      <li class="facebook"><a href="{{article.share_post['facebook']}}" class="icon48 icon48-1">Facebook</a></li>
+									      <li class="Diaspora"><a href="{{article.share_post['diaspora']}}" class="icon48 icon48-3">Diaspora</a></li>
+									      <li class="Email"><a href="{{article.share_post['email']}}" class="icon48 icon48-7">Email</a></li>
+
+									  </ul>
+									</section>
+									{% endif %}
 								</article>
 								{% include 'disqus_script.html' %}
 						</div>
