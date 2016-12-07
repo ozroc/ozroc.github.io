@@ -7,10 +7,11 @@
 -->
 <html>
 	<head>
-			<title>The Awesome Adventures of a Drinking Bird - Monte Carlo</title>
+			<title>The Awesome Adventures of a Drinking Bird</title>
 			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 			<meta charset="utf-8" />
 			<link href="http://ozroc.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Awesome Adventures of a Drinking Bird Full Atom Feed" />
+			<link href="http://ozroc.github.io/feeds/talks.atom.xml" type="application/atom+xml" rel="alternate" title="The Awesome Adventures of a Drinking Bird Categories Atom Feed" />
 			<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic" rel="stylesheet" />
 				<link rel="stylesheet" href="/theme/css/pygment.css" />
 			<noscript>
@@ -77,40 +78,74 @@
 			<div id="main-wrapper">
 				<div class="container">
 <div class="row">
-<div class="12u">
-    <section>
-            <div class="row">
-                <div class="4u">
-                    <section class="box">
-                        <header>
+	<div class="12u">
+			<section>
+				<div>
+					<div class="row">
+						<div class="12u skel-cell-mainContent">
+							<!-- Content -->
+								<article class="box is-post">
+									<div class="post-infos">
+										<ul class="tags">
+											<li><a class="button" href="category/talks.html">Talks</a></li>
+												<li><a class="button button-alt" href="tag/python.html">Python</a></li>
 
+												<li><a class="button button-alt" href="tag/monitoring.html">Monitoring</a></li>
 
-			  <ul class="dates">
-			    <li>
-			      <span class="date">dic/16 <strong>05</strong></span>			  
-                              <h3>PI4fun (Part 1)</h3>
-			      <span class="byline">Pablo Manuel García Corzo</span>  
-			  </ul>    
-                        </header>
-                        <p>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+												<li><a class="button button-alt" href="tag/pydata.html">Pydata</a></li>
+
+												<li><a class="button button-alt" href="tag/analytics.html">Analytics</a></li>
+
+										</ul>
+									</div>
+
+									<div class="pennant pennant-alt date">2016-04-09</div>
+									<h2>Towards a full stack python monitoring+analytics framework</h2>
+									<p>Are traditional monitoring solutions ready for the software defined world (SDN/NFV) and the IoT? Analytics can’t be considered anymore as an extra but a must for diving in an ocean of data where threshold-based KPIs are not enough. We will attempt to identify lacks in current tools and design a full stack python monitoring+analytics framework capable to face the new challenges of today.</p>
+<p>It’s quite probable that you already have a standard monitoring tool (such as Nagios) deployed in your production environment reading thousands of KPIs from your systems every minute.</p>
+<p>As you may already suspect, there’s much more interesting information hidden in all that data than just plain threshold based alarms per kpi and you wish to exploit it in much more depth.</p>
+<p>Furthermore, traditional monitoring solutions are not ready for the increasing flow of heterogeneous information coming from the software defined world (SDN/NFV) and the IoT, where isolated threshold based alarms are not enough and analytics are a must for redefining your KPIs.</p>
+<p>In this talk, we will attempt to design a full stack python monitoring+analytics framework capable to face those new challenges. For such a purpose we will study several state of the art libraries and tools covering all the pieces involved in the framework:</p>
+<ul>
+<li>Agents and brokers for data acquisition (ncpa, dweepy, phant, paho, hbmqtt...)</li>
+<li>Data storage (gnocchi, Arctic, HDF5, RRD...)</li>
+<li>Analytics (numpy, pandas, scikit-learn...)</li>
+<li>Dashboard generation (Bokeh, plotly, matplotlib...)</li>
+<li>Alarm raising (mqttwarn, telegram bots...)</li>
+</ul>
+<div class="youtube" align="center">
+<iframe width="800" height="500" src="https://www.youtube.com/embed/-iqzbahA23Q" frameborder="0"></iframe>
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Estimating-$\pi$-for-fun-(Part-1:-the-basics)">Estimating $\pi$ for fun (Part 1: the basics)<a class="anchor-link" href="#Estimating-$\pi$-for-fun-(Part-1:-the-basics)">¶</a></h1><p><img src="/images/darts_pi.svg" , width="50%" , align="left"></p>
-<p>The proposed project in this article is an example I tend to use in my Python introductory courses. The purpose is to calculate a dummy PI estimation based on a damn simple <a href="https://en.wikipedia.org/wiki/Monte_Carlo_algorithm">Monte Carlo</a> algorithm.</p>
-<p>It’s a simple and fun example that can be approached in a really direct and simple way, but that can be improved in  many ways.</p><p>
-                        <footer class="actions">
-                            <a href="http://ozroc.github.io/estimating-pi-for-fun-1.html" class="button button-icon button-icon-1">Continue Reading</a>
-                        </footer>
-                    </section>
-                </div>
-    </section><!-- /#content -->
-            <p class="paginator">
-                Page 1 / 1
-            </p>
-</div>
+									
+									<section>
+									  <p>
+									    Share on:
+									    <ul class="social">
+									    									    
+									      <li class="twitter"><a href="http://twitter.com/home?status=Towards%20a%20full%20stack%20python%20monitoring%2Banalytics%20framework%20http%3A//ozroc.github.io/about-me.html" class="icon48 icon48-2">Twitter</a></li>
+									      <li class="linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//ozroc.github.io/about-me.html&title=Towards%20a%20full%20stack%20python%20monitoring%2Banalytics%20framework&summary=Presentation%20for%20PyData%20Madrid%202016%3A%20Towards%20a%20full%20stack%20python%20monitoring%2Banalytics%20framework&source=http%3A//ozroc.github.io/about-me.html" class="icon48 icon48-4">LinkedIn</a></li>
+									      <li class="googleplus"><a href="https://plus.google.com/share?url=http%3A//ozroc.github.io/about-me.html" class="icon48 icon48-6">Google Plus</a></li>
+									      <li class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//ozroc.github.io/about-me.html" class="icon48 icon48-1">Facebook</a></li>
+									      <li class="Diaspora"><a href="https://sharetodiaspora.github.io/?title=Towards%20a%20full%20stack%20python%20monitoring%2Banalytics%20framework&url=http%3A//ozroc.github.io/about-me.html" class="icon48 icon48-3">Diaspora</a></li>
+									      <li class="Email"><a href="mailto:?subject=Towards%20a%20full%20stack%20python%20monitoring%2Banalytics%20framework&amp;body=http%3A//ozroc.github.io/about-me.html" class="icon48 icon48-7">Email</a></li>
+
+									  </ul>
+									</section>
+								</article>
+ <div id="disqus_thread" class="box"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ozroc';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+						</div>
+					</div>
+				</div>
+			</section>
+	</div>
 </div>
 
 				</div>
@@ -141,6 +176,13 @@
 <p>It’s a simple and fun example that can be approached in a really direct and simple way, but that can be improved in  many ways.</p></p>
 											<br>
 											<a href="http://ozroc.github.io/estimating-pi-for-fun-1.html" class="button-mini button-icon button-icon-1">Continue Reading</a>
+										</li>
+										<li>
+											<a href="about-me.html"><span class="date">abr <strong>09</strong></span></a>
+											<h3><a href="about-me.html">Towards a full stack python monitoring+analytics framework</a></h3>Pablo Manuel García Corzo
+											<p><p>Presentation for <a href="http://pydata.org/madrid2016/schedule/presentation/14/index.html">PyData Madrid 2016</a>: <a href="https://youtu.be/-iqzbahA23Q?list=PLGVZCDnMOq0o43_3tHLAblfdOWwFFg76T"><strong>Towards a full stack python monitoring+analytics framework</strong></a></p></p>
+											<br>
+											<a href="http://ozroc.github.io/about-me.html" class="button-mini button-icon button-icon-1">Continue Reading</a>
 										</li>
 									</ul>
 								</section>
