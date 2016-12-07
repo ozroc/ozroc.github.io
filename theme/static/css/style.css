@@ -607,15 +607,16 @@
 
 		#header-wrapper:before
 		{
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			background: url('images/bg02.png');
-			z-index: 0;
-			opacity: 0.5;
-			box-shadow: inset 0px -60px 40px 0px #fff;
+		    width: 100%;
+		    background: url('images/bg00.jpg');
+		    background-repeat: no-repeat;
+		    content: '';
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    z-index: 0;
+		    opacity: 0.5;
+		    box-shadow: inset 0px -60px 40px 0px #fff;
 		}
 		
 		#header-wrapper:after
