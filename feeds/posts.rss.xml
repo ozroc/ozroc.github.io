@@ -1,108 +1,5 @@
-
-<!DOCTYPE HTML>
-<!--
-	Dopetrope 2.0 by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-			<title>The Awesome Adventures of a Drinking Bird</title>
-			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-			<meta charset="utf-8" />
-			<link href="http://ozroc.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Awesome Adventures of a Drinking Bird Full Atom Feed" />
-			<link href="http://ozroc.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="The Awesome Adventures of a Drinking Bird Full RSS Feed" />
-			<link href="http://ozroc.github.io/feeds/posts.atom.xml" type="application/atom+xml" rel="alternate" title="The Awesome Adventures of a Drinking Bird Categories Atom Feed" />
-			<link href="http://ozroc.github.io/feeds/posts.rss.xml" type="application/rss+xml" rel="alternate" title="The Awesome Adventures of a Drinking Bird Categories RSS Feed" />
-			<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic" rel="stylesheet" />
-				<link rel="stylesheet" href="/theme/css/pygment.css" />
-			<noscript>
-				<link rel="stylesheet" href="/theme/css/skel-noscript.css" />
-				<link rel="stylesheet" href="/theme/css/style.css" />
-				<link rel="stylesheet" href="/theme/css/style-desktop.css" />
-			</noscript>
-	</head>
-	<body class="no-sidebar">
-	  <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-	    var mathjaxscript = document.createElement('script');
-	    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-	    mathjaxscript.type = 'text/javascript';
-	    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-	    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-	    "MathJax.Hub.Config({" +
-	    "    config: ['MMLorHTML.js']," +
-	    "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-	    "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-	    "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-	    "    displayAlign: 'center'," +
-	    "    displayIndent: '0em'," +
-	    "    showMathMenu: true," +
-	    "    tex2jax: { " +
-	    "        inlineMath: [ ['$','$'] ], " +
-	    "        displayMath: [ ['$$','$$'] ]," +
-	    "        processEscapes: true," +
-	    "        preview: 'TeX'," +
-	    "    }, " +
-	    "    'HTML-CSS': { " +
-	    "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
-	    "    } " +
-	    "}); ";
-	    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-	    }
-	    </script>
-		<!-- Header Wrapper -->
-			<div id="header-wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="12u">
-						
-							<!-- Header -->
-								<section id="header">
-									
-									<!-- Logo -->
-									<h1><a href="http://ozroc.github.io/">The Awesome Adventures of a Drinking Bird</a></h1>
-									
-									<!-- Nav -->
-										<nav id="nav">
-											<ul>
-														<li><a href="http://ozroc.github.io/pages/about-me.html">About Me</a></li>
-											</ul>
-										</nav>
-
-								</section>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		
-		<!-- Main Wrapper -->
-			<div id="main-wrapper">
-				<div class="container">
-<div class="row">
-	<div class="12u">
-			<section>
-				<div>
-					<div class="row">
-						<div class="12u skel-cell-mainContent">
-							<!-- Content -->
-								<article class="box is-post">
-									<div class="image image-full"><img src="http://ozroc.github.io//images/darts_pi.svg"/><a href="" class="img-copy"></a></div>
-									<div class="post-infos">
-										<ul class="tags">
-											<li><a class="button" href="category/posts.html">Posts</a></li>
-												<li><a class="button button-alt" href="tag/python-firsts.html">Python firsts</a></li>
-
-												<li><a class="button button-alt" href="tag/tutorial.html">Tutorial</a></li>
-
-												<li><a class="button button-alt" href="tag/monte-carlo.html">Monte carlo</a></li>
-
-										</ul>
-									</div>
-
-									<div class="pennant pennant-alt date">2016-12-05</div>
-									<h2>PI4fun (Part 1)</h2>
-									<style type="text/css">/*!
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>The Awesome Adventures of a Drinking Bird</title><link>http://ozroc.github.io/</link><description></description><lastBuildDate>Mon, 05 Dec 2016 15:00:00 +0100</lastBuildDate><item><title>PI4fun (Part 1)</title><link>http://ozroc.github.io/estimating-pi-for-fun-1.html</link><description>&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -333,7 +230,7 @@ div.unrecognized_cell .inner_cell a:hover {
   text-decoration: none;
 }
 @media (max-width: 540px) {
-  div.unrecognized_cell > div.prompt {
+  div.unrecognized_cell &gt; div.prompt {
     display: none;
   }
 }
@@ -386,19 +283,19 @@ div.input_prompt {
   color: #303F9F;
   border-top: 1px solid transparent;
 }
-div.input_area > div.highlight {
+div.input_area &gt; div.highlight {
   margin: 0.4em;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-div.input_area > div.highlight > pre {
+div.input_area &gt; div.highlight &gt; pre {
   margin: 0px;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-/* The following gets added to the <head> if it is detected that the user has a
+/* The following gets added to the &lt;head&gt; if it is detected that the user has a
  * monospace font with inconsistent normal/bold/italic height.  See
  * notebookmain.js.  Such fonts will have keywords vertically offset with
  * respect to the rest of the text.  The user should select a better font.
@@ -444,7 +341,7 @@ div.input_area > div.highlight > pre {
 }
 /*
 
-Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
 Adapted from GitHub theme
 
 */
@@ -906,7 +803,7 @@ div.text_cell {
   align-items: stretch;
 }
 @media (max-width: 540px) {
-  div.text_cell > div.prompt {
+  div.text_cell &gt; div.prompt {
     display: none;
   }
 }
@@ -971,8 +868,8 @@ h6:hover .anchor-link {
   font-size: 100%;
   font-style: italic;
 }
-</style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
@@ -1036,8 +933,8 @@ h6:hover .anchor-link {
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
-<style type="text/css">
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
+&lt;style type="text/css"&gt;
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -1073,155 +970,155 @@ h6:hover .anchor-link {
 .ansi-white-intense-bg { background-color: #A1A6B2; }
 
 .ansi-bold { font-weight: bold; }
-</style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Estimating-$\pi$-for-fun-(Part-1:-the-basics)">Estimating $\pi$ for fun (Part 1: the basics)<a class="anchor-link" href="#Estimating-$\pi$-for-fun-(Part-1:-the-basics)">¶</a></h1><p>The proposed project in this article is an example I tend to use in my Python introductory courses. The purpose is to calculate a dummy PI estimation based on a damn simple <a href="https://en.wikipedia.org/wiki/Monte_Carlo_algorithm">Monte Carlo</a> algorithm.</p>
-<p>It’s a simple and fun example that can be approached in a really direct and simple way, but that can be improved in  many ways.</p>
-<p>Let's start by imagining a blind darts player.</p>
-<p><img src="/images/darts_pi.svg" , width="50%" , align="left"></p>
-<p>If we assume he performs completely random shots, the ratio between the darts inside a unit circle target and the corresponding unit square target will be equal to the ratio between the well known areas of the unit square and the unit circle:</p>
+&lt;/style&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Estimating-$\pi$-for-fun-(Part-1:-the-basics)"&gt;Estimating $\pi$ for fun (Part 1: the basics)&lt;a class="anchor-link" href="#Estimating-$\pi$-for-fun-(Part-1:-the-basics)"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The proposed project in this article is an example I tend to use in my Python introductory courses. The purpose is to calculate a dummy PI estimation based on a damn simple &lt;a href="https://en.wikipedia.org/wiki/Monte_Carlo_algorithm"&gt;Monte Carlo&lt;/a&gt; algorithm.&lt;/p&gt;
+&lt;p&gt;It’s a simple and fun example that can be approached in a really direct and simple way, but that can be improved in  many ways.&lt;/p&gt;
+&lt;p&gt;Let's start by imagining a blind darts player.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/images/darts_pi.svg" , width="50%" , align="left"&gt;&lt;/p&gt;
+&lt;p&gt;If we assume he performs completely random shots, the ratio between the darts inside a unit circle target and the corresponding unit square target will be equal to the ratio between the well known areas of the unit square and the unit circle:&lt;/p&gt;
 \begin{equation*}
 \frac{D_c}{D_s} = \frac{\pi r^2}{(2r)^2} = \frac 1 4 \pi \to \pi = 4 \frac{D_c}{D_s}
-\end{equation*}<p>So, our approach will be to simulate random shots and cout how many of them hit inside the circle target and how many of them don't.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In Python, we can easily generate random numbers using the random module. With ´random.random()´ we can generate random numbers between 0 and 1:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [1]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-<span class="k">print</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0.474118289796
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>With a couple of random numbers we can define a point in 2D space.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [2]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(0.6891164227696354, 0.625197082590671)
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, we have to define a variable to store the shots hitting the target, start launching random shots and counting how many of then hit the target:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [3]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">Inside</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">Total</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Total</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o"><</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># Target!</span>
-        <span class="n">Inside</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Our $pi$ approximation will be</p>
+\end{equation*}&lt;p&gt;So, our approach will be to simulate random shots and cout how many of them hit inside the circle target and how many of them don't.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;In Python, we can easily generate random numbers using the random module. With ´random.random()´ we can generate random numbers between 0 and 1:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;random&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;0.474118289796
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;With a couple of random numbers we can define a point in 2D space.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;(0.6891164227696354, 0.625197082590671)
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Now, we have to define a variable to store the shots hitting the target, start launching random shots and counting how many of then hit the target:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [3]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Inside&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="n"&gt;Total&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Total&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&lt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="c1"&gt;# Target!&lt;/span&gt;
+        &lt;span class="n"&gt;Inside&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Our $pi$ approximation will be&lt;/p&gt;
 \begin{equation*}
 \pi\approx 4\frac{I}{T}
 \end{equation*}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [4]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_pi</span> <span class="o">=</span> <span class="mf">4.</span><span class="o">*</span><span class="n">Inside</span><span class="o">/</span><span class="n">Total</span>
-<span class="k">print</span> <span class="s2">"With </span><span class="si">%s</span><span class="s2"> random shots we've obtained an approximation of pi = </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">Total</span><span class="p">,</span> <span class="n">my_pi</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>With 100 random shots we've obtained an approximation of pi = 3.28
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In next posts, we'll evolve this really simple example to make use of several interesting things such as structuring our code with functions and classes, applying several ways of optimization or drawing nice plots for illustrating the results.</p>
-</div>
-</div>
-</div>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;my_pi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;4.&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;Inside&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Total&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;"With &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt; random shots we've obtained an approximation of pi = &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Total&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;my_pi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;With 100 random shots we've obtained an approximation of pi = 3.28
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;In next posts, we'll evolve this really simple example to make use of several interesting things such as structuring our code with functions and classes, applying several ways of optimization or drawing nice plots for illustrating the results.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -1247,150 +1144,5 @@ h6:hover .anchor-link {
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script>
-
-									
-									<section>
-									  <p>
-									    Share on:
-									    <ul class="social">
-									    									    
-									      <li class="twitter"><a href="http://twitter.com/home?status=PI4fun%20%28Part%201%29%20http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-2">Twitter</a></li>
-									      <li class="linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html&title=PI4fun%20%28Part%201%29&summary=Estimating%20%24%5Cpi%24%20for%20fun%20%28Part%201%3A%20the%20basics%29%C2%B6The%20proposed%20project%20in%20this%20article%20is%20an%20example%20I%20tend%20to%20use%20in%20my%20Python%20introductory%20courses.%20The%20purpose%20is%20to%20calculate%20a%20dummy%20PI%20estimation%20based%20on%20a%20damn%20simple%20Monte%20Carlo%20algorithm.%0AIt%E2%80%99s%20a%20simple%20and%20fun%20example%20that%20can%20be%20approached%20in%20a%20really%20direct%20and%20simple%20way%2C%20but%20that%20can%20be%20improved%20in%20%20many%20ways.&source=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-4">LinkedIn</a></li>
-									      <li class="googleplus"><a href="https://plus.google.com/share?url=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-6">Google Plus</a></li>
-									      <li class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-1">Facebook</a></li>
-									      <li class="Diaspora"><a href="https://sharetodiaspora.github.io/?title=PI4fun%20%28Part%201%29&url=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-3">Diaspora</a></li>
-									      <li class="Email"><a href="mailto:?subject=PI4fun%20%28Part%201%29&amp;body=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-7">Email</a></li>
-
-									  </ul>
-									</section>
-								</article>
- <div id="disqus_thread" class="box"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'ozroc';
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-						</div>
-					</div>
-				</div>
-			</section>
-	</div>
-</div>
-
-				</div>
-			</div>
-
-		<!-- Footer Wrapper -->
-			<div id="footer-wrapper">
-				<!-- Footer -->
-					<section id="footer" class="container">
-						<div class="row">
-							<div class="8u">
-								<section>
-									<header>
-										<h2>Latest articles</h2>
-									</header>
-									<ul class="dates">
-										<li>
-											<a href="http://ozroc.github.io/estimating-pi-for-fun-1.html"><span class="date">dic <strong>05</strong></span></a>
-											<h3><a href="http://ozroc.github.io/estimating-pi-for-fun-1.html">PI4fun (Part 1)</a></h3>Pablo Manuel García Corzo
-											<p>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Estimating-$\pi$-for-fun-(Part-1:-the-basics)">Estimating $\pi$ for fun (Part 1: the basics)<a class="anchor-link" href="#Estimating-$\pi$-for-fun-(Part-1:-the-basics)">¶</a></h1><p>The proposed project in this article is an example I tend to use in my Python introductory courses. The purpose is to calculate a dummy PI estimation based on a damn simple <a href="https://en.wikipedia.org/wiki/Monte_Carlo_algorithm">Monte Carlo</a> algorithm.</p>
-<p>It’s a simple and fun example that can be approached in a really direct and simple way, but that can be improved in  many ways.</p></p>
-											<br>
-											<a href="http://ozroc.github.io/estimating-pi-for-fun-1.html" class="button-mini button-icon button-icon-1">Continue Reading</a>
-										</li>
-										<li>
-											<a href="http://ozroc.github.io/about-me.html"><span class="date">abr <strong>09</strong></span></a>
-											<h3><a href="http://ozroc.github.io/about-me.html">Towards a full stack python monitoring+analytics framework</a></h3>Pablo Manuel García Corzo
-											<p><p>Presentation for <a href="http://pydata.org/madrid2016/schedule/presentation/14/index.html">PyData Madrid 2016</a>: <a href="https://youtu.be/-iqzbahA23Q?list=PLGVZCDnMOq0o43_3tHLAblfdOWwFFg76T"><strong>Towards a full stack python monitoring+analytics framework</strong></a></p>
-<p>Are traditional monitoring solutions ready for the software defined world (SDN/NFV) and the IoT? Analytics can’t be considered anymore as an extra but a must for diving in an ocean of data where threshold-based KPIs ...</p></p>
-											<br>
-											<a href="http://ozroc.github.io/about-me.html" class="button-mini button-icon button-icon-1">Continue Reading</a>
-										</li>
-									</ul>
-								</section>
-							</div>
-								<div class="4u">
-									<section>
-										<header>
-											<h2>Author</h2>
-										</header>
-										<p>
-										
-<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-
-<div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="es_ES" data-type="horizontal" data-theme="light" data-vanity="pablomgc"><a class="LI-simple-link" href='https://es.linkedin.com/in/pablomgc?trk=profile-badge'>Pablo Manuel García Corzo</a></div>
-
-										</p>
-																			<ul class="social">
-									  <li class="mail"><a href="mailto:pablo.manuel.garcia@blue-tc.com" class="icon48 icon48-7"><img src="images/internet-mail-300px.png", width=200px></a></li>
-									  <li class="twitter"><a href="http://twitter.com/PablomgcBlue" class="icon48 icon48-2">Twitter</a></li>
-									</ul>
-
-										<footer>
-										</footer>
-									</section>
-								</div>
-						</div>
-						<div class="row">
-							<div class="4u">
-								<section>
-									<header>
-										<h2>Blogroll</h2>
-									</header>
-									<ul class="divided">
-											<li><a href="http://bluetc.es/en/sharing-and-engaging/a-telecoms-blog/blogger/listings/pablo-garcia">A Telecom's Blog</a></li>
-									</ul>
-								</section>
-							</div>
-							<div class="4u">
-								<section>
-									<header>
-										<h2>Categories</h2>
-									</header>
-									<ul class="divided">
-											<li><a href="http://ozroc.github.io/category/posts.html">posts</a></li>
-											<li><a href="http://ozroc.github.io/category/talks.html">talks</a></li>
-									</ul>
-								</section>
-							</div>
-							<div class="4u">
-							
-								<section>
-									<header>
-									</header>
-								</section>
-							</div>
-						</div>
-						<div class="row">
-							<div class="12u">
-								<!-- Copyright -->
-									<div id="copyright">
-										<ul class="links">
-											<li>&copy; Pablo Manuel García Corzo. Built using <a href="https://github.com/getpelican/pelican/">Pelican</a> and based on <a href="https://github.com/PierrePaul/html5-dopetrope">html5-dopetrope</a> theme:	</li>
-											<li>Images: <a href="http://facebook.com/DreametryDoodle">Dreametry Doodle</a> + <a href="http://iconify.it">Iconify.it</a></li>
-											<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-										</ul>
-									</div>
-							</div>
-						</div>
-					</section>
-			</div>
-		<script src="/theme/js/jquery.min.js"></script>
-		<script src="/theme/js/jquery.dropotron.js"></script>
-		<script src="/theme/js/config.js"></script>
-		<script src="/theme/js/skel.min.js"></script>
-		<script src="/theme/js/skel-panels.min.js"></script>
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
-	</body>
-</html>
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Pablo Manuel García Corzo</dc:creator><pubDate>Mon, 05 Dec 2016 15:00:00 +0100</pubDate><guid isPermaLink="false">tag:ozroc.github.io,2016-12-05:estimating-pi-for-fun-1.html</guid><category>python firsts</category><category>tutorial</category><category>Monte Carlo</category></item></channel></rss>
