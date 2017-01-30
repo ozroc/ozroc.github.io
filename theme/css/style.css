@@ -104,7 +104,7 @@
 	section,
 	article
 	{
-		margin-bottom: 2.5em;
+	    margin-bottom: 2.5em;
 	}
 	
 		section > :last-child,
@@ -759,10 +759,6 @@
 .img-copy {
 	float:right;
 	margin-right:2em;
-}
-
-article .cell {
-    font-size: 1.3em;
 }
 
 article .date {
