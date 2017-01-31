@@ -61,3 +61,11 @@ DISPLAY_CATEGORIES_ON_MENU = True
 DISQUS_SITENAME = 'ozroc'
 
 COPYRIGHT='Pablo Manuel García Corzo. Built using <a href="https://github.com/getpelican/pelican/">Pelican</a> and based on <a href="https://github.com/PierrePaul/html5-dopetrope">html5-dopetrope</a> theme:'
+
+
+STATIC_PATHS = [
+    'images/favicon.ico'
+]
+EXTRA_PATH_METADATA = {
+    'images/favicon.ico': {'path': 'favicon.ico'}
+}
