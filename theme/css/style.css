@@ -138,7 +138,7 @@
 			.box .image-full
 			{
 				position: relative;
-				width: auto;
+				max-width: 100%;
 			}
 
 	/* Button */
@@ -280,7 +280,7 @@
 			.image img
 			{
 				display: block;
-				width: 100%;
+				max-width: 100%;
 			}
 
 		.image-centered
