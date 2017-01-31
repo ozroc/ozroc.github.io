@@ -64,6 +64,7 @@ COPYRIGHT='Pablo Manuel García Corzo. Built using <a href="https://github.com/g
 
 
 STATIC_PATHS = [
+    'images',
     'images/favicon.ico'
 ]
 EXTRA_PATH_METADATA = {

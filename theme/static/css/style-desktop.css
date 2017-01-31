@@ -61,9 +61,11 @@
 		
 			.box .image-full
 			{
-				left: 1.75em;
+			    margin-left: auto;
+			    margin-right: auto;
+				/*left: 1.75em;
 				top: 1.75em;
-				margin: -4.5em 0 4.25em -3.5em;
+				margin: -4.5em 0 4.25em -3.5em;*/
 			}
 
 	/* Button */
