@@ -87,21 +87,21 @@
 						<div class="12u skel-cell-mainContent">
 							<!-- Content -->
 								<article class="box is-post">
-									<div class="image image-full"><img src="http://ozroc.github.io//images/darts_pi.svg"/><a href="" class="img-copy"></a></div>
+									<div class="image image-full"><img src="http://ozroc.github.io//images/python_pills.png"/><a href="" class="img-copy"></a></div>
 									<div class="post-infos">
 										<ul class="tags">
 											<li><a class="button" href="category/posts.html">Posts</a></li>
-												<li><a class="button button-alt" href="tag/python-firsts.html">Python firsts</a></li>
+												<li><a class="button button-alt" href="tag/python-pills.html">Python pills</a></li>
 
-												<li><a class="button button-alt" href="tag/tutorial.html">Tutorial</a></li>
+												<li><a class="button button-alt" href="tag/decorators.html">Decorators</a></li>
 
-												<li><a class="button button-alt" href="tag/monte-carlo.html">Monte carlo</a></li>
+												<li><a class="button button-alt" href="tag/properties.html">Properties</a></li>
 
 										</ul>
 									</div>
 
-									<div class="pennant pennant-alt date">2016-12-05</div>
-									<h2>PI4fun (Part 1)</h2>
+									<div class="pennant pennant-alt date">2017-01-31</div>
+									<h2>Cache your properties with a decorator</h2>
 									<style type="text/css">/*!
 *
 * IPython notebook
@@ -1079,23 +1079,11 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Estimating-$\pi$-for-fun-(Part-1:-the-basics)">Estimating $\pi$ for fun (Part 1: the basics)<a class="anchor-link" href="#Estimating-$\pi$-for-fun-(Part-1:-the-basics)">¶</a></h1><p>The proposed project in this article is an example I tend to use in my Python introductory courses. The purpose is to calculate a dummy PI estimation based on a damn simple <a href="https://en.wikipedia.org/wiki/Monte_Carlo_algorithm">Monte Carlo</a> algorithm.</p>
-<p>It’s a simple and fun example that can be approached in a really direct and simple way, but that can be improved in  many ways.</p>
-<p>Let's start by imagining a blind darts player.</p>
-<p><img src="/images/darts_pi.svg" , width="50%" , align="left"></p>
-<p>If we assume he performs completely random shots, the ratio between the darts inside a unit circle target and the corresponding unit square target will be equal to the ratio between the well known areas of the unit square and the unit circle:</p>
-\begin{equation*}
-\frac{D_c}{D_s} = \frac{\pi r^2}{(2r)^2} = \frac 1 4 \pi \to \pi = 4 \frac{D_c}{D_s}
-\end{equation*}<p>So, our approach will be to simulate random shots and cout how many of them hit inside the circle target and how many of them don't.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In Python, we can easily generate random numbers using the random module. With ´random.random()´ we can generate random numbers between 0 and 1:</p>
+<p>This is a wonderful Python idea I've found quite usefull and fun to implement.</p>
+<p>The reason of the need comes from an analytics project I'm working on.</p>
+<p>I have to read data from several sources (let's think on a file, a database or a remote query) that changes at predefined periods (let's say each minute).</p>
+<p>I need to continuously access the data for my calculations. But, due to performance issues, I don't want to read from disk or query the database too often... just at certain predefined time periods related with refresh rates of my data.</p>
+<p>In this example I have a class for getting <a href="http://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html#dev">Euro foreign exchange reference rates</a>:</p>
 </div>
 </div>
 </div>
@@ -1104,19 +1092,22 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-<span class="k">print</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="kn">import</span> <span class="nn">xmltodict</span>
+
+<span class="k">class</span> <span class="nc">ECB</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">'http://www.ecb.int/stats/eurofxref/eurofxref-daily.xml'</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__url</span> <span class="o">=</span> <span class="n">url</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__url</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="nb">map</span><span class="p">(</span>
+                <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"@currency"</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s2">"@rate"</span><span class="p">]],</span> 
+                <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                               <span class="p">)[</span><span class="s2">"gesmes:Envelope"</span><span class="p">][</span><span class="s2">"Cube"</span><span class="p">][</span><span class="s2">"Cube"</span><span class="p">][</span><span class="s2">"Cube"</span><span class="p">])</span>
+        <span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0.474118289796
-</pre>
-</div>
 </div>
 </div>
 </div>
@@ -1126,7 +1117,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>With a couple of random numbers we can define a point in 2D space.</p>
+<p>So I can instantiate an ECB object and get the desired data from a simple property</p>
 </div>
 </div>
 </div>
@@ -1135,30 +1126,9 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">bank</span> <span class="o">=</span> <span class="n">ECB</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(0.6891164227696354, 0.625197082590671)
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, we have to define a variable to store the shots hitting the target, start launching random shots and counting how many of then hit the target:</p>
 </div>
 </div>
 </div>
@@ -1167,36 +1137,8 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">Inside</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">Total</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Total</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o"><</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># Target!</span>
-        <span class="n">Inside</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Our $pi$ approximation will be</p>
-\begin{equation*}
-\pi\approx 4\frac{I}{T}
-\end{equation*}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [4]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_pi</span> <span class="o">=</span> <span class="mf">4.</span><span class="o">*</span><span class="n">Inside</span><span class="o">/</span><span class="n">Total</span>
-<span class="k">print</span> <span class="s2">"With </span><span class="si">%s</span><span class="s2"> random shots we've obtained an approximation of pi = </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">Total</span><span class="p">,</span> <span class="n">my_pi</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+print bank.data
 </pre></div>
 </div>
 </div>
@@ -1205,7 +1147,9 @@ h6:hover .anchor-link {
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>With 100 random shots we've obtained an approximation of pi = 3.28
+<pre>{u'USD': u'1.0755', u'IDR': u'14363.56', u'BGN': u'1.9558', u'ILS': u'4.0575', u'GBP': u'0.86105', u'DKK': u'7.4373', u'CAD': u'1.4056', u'MXN': u'22.2855', u'HUF': u'310.64', u'RON': u'4.5030', u'MYR': u'4.7608', u'SEK': u'9.4505', u'SGD': u'1.5201', u'HKD': u'8.3436', u'AUD': u'1.4198', u'CHF': u'1.0668', u'KRW': u'1244.76', u'CNY': u'7.3970', u'TRY': u'4.0632', u'HRK': u'7.4790', u'NZD': u'1.4709', u'THB': u'37.793', u'NOK': u'8.8880', u'RUB': u'64.4302', u'INR': u'72.8005', u'JPY': u'121.94', u'CZK': u'27.021', u'BRL': u'3.3535', u'PLN': u'4.3239', u'PHP': u'53.489', u'ZAR': u'14.4440'}
+CPU times: user 4 ms, sys: 0 ns, total: 4 ms
+Wall time: 178 ms
 </pre>
 </div>
 </div>
@@ -1217,7 +1161,353 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In next posts, we'll evolve this really simple example to make use of several interesting things such as structuring our code with functions and classes, applying several ways of optimization or drawing nice plots for illustrating the results.</p>
+<p>This data changes daily so there's no point on continuously requesting from the remote server. 
+But I can't just consider it as static data as my project will be running for months and continuously using this data.</p>
+<p>I need to somehow tell my property to store a cached data to be used.</p>
+<p>I'm working with different data sources, so I want something simple, legible and flexible enough. The most elegant way I can imagine to acomplish this is through a decorator.</p>
+<p>Let's start creating a decorator that stores the data in a dictionary.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">cached</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">func_wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">'__cache__'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__cache__</span><span class="o">=</span><span class="p">{}</span>
+        <span class="k">if</span> <span class="n">func</span><span class="o">.</span><span class="n">__name__</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cache__</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__cache__</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cache__</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">func_wrapper</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Basically my new decorator looks for the name of my property in the keys of an dictionary stored as an attribute of my object called <code>__cache__</code>. If it doesn't exists it'll get the real data and store it there.</p>
+<p>Now I can just decorate my property</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">ECB</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">'http://www.ecb.int/stats/eurofxref/eurofxref-daily.xml'</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__url</span> <span class="o">=</span> <span class="n">url</span>
+    <span class="nd">@property</span>
+    <span class="nd">@cached</span>
+    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__url</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="nb">map</span><span class="p">(</span>
+                <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"@currency"</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s2">"@rate"</span><span class="p">]],</span> 
+                <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                               <span class="p">)[</span><span class="s2">"gesmes:Envelope"</span><span class="p">][</span><span class="s2">"Cube"</span><span class="p">][</span><span class="s2">"Cube"</span><span class="p">][</span><span class="s2">"Cube"</span><span class="p">])</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Instantiate the class</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">bank2</span><span class="o">=</span><span class="n">ECB</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>and get the data for the first time:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+print bank2.data
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{u'USD': u'1.0755', u'IDR': u'14363.56', u'BGN': u'1.9558', u'ILS': u'4.0575', u'GBP': u'0.86105', u'DKK': u'7.4373', u'CAD': u'1.4056', u'MXN': u'22.2855', u'HUF': u'310.64', u'RON': u'4.5030', u'MYR': u'4.7608', u'SEK': u'9.4505', u'SGD': u'1.5201', u'HKD': u'8.3436', u'AUD': u'1.4198', u'CHF': u'1.0668', u'KRW': u'1244.76', u'CNY': u'7.3970', u'TRY': u'4.0632', u'HRK': u'7.4790', u'NZD': u'1.4709', u'THB': u'37.793', u'NOK': u'8.8880', u'RUB': u'64.4302', u'INR': u'72.8005', u'JPY': u'121.94', u'CZK': u'27.021', u'BRL': u'3.3535', u'PLN': u'4.3239', u'PHP': u'53.489', u'ZAR': u'14.4440'}
+CPU times: user 0 ns, sys: 4 ms, total: 4 ms
+Wall time: 173 ms
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note it takes around $200 ms$ to get the data.</p>
+<p>The next time I call for the property, the data is already stored in memory, so the time it takes to get the data is much less (around $200  \mu s$):</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+print bank2.data
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{u'USD': u'1.0755', u'IDR': u'14363.56', u'BGN': u'1.9558', u'ILS': u'4.0575', u'GBP': u'0.86105', u'DKK': u'7.4373', u'CAD': u'1.4056', u'MXN': u'22.2855', u'HUF': u'310.64', u'RON': u'4.5030', u'MYR': u'4.7608', u'SEK': u'9.4505', u'SGD': u'1.5201', u'HKD': u'8.3436', u'AUD': u'1.4198', u'CHF': u'1.0668', u'KRW': u'1244.76', u'CNY': u'7.3970', u'TRY': u'4.0632', u'HRK': u'7.4790', u'NZD': u'1.4709', u'THB': u'37.793', u'NOK': u'8.8880', u'RUB': u'64.4302', u'INR': u'72.8005', u'JPY': u'121.94', u'CZK': u'27.021', u'BRL': u'3.3535', u'PLN': u'4.3239', u'PHP': u'53.489', u'ZAR': u'14.4440'}
+CPU times: user 4 ms, sys: 0 ns, total: 4 ms
+Wall time: 191 µs
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With the current implementation, the cached data is static. We want to make it refresh with a certain time period.</p>
+<p>In our <code>__cache__</code> dictionary we'll store not only the data but the time when it was updated, so each time we ask for it's value our property will consider if the data is still valid or outdated, and if so, refresh it.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">cached_till</span><span class="p">(</span><span class="n">time_delta</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">cached</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">func_wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="k">if</span> <span class="s1">'__cache__'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__cache__</span><span class="o">=</span><span class="p">{}</span>
+            <span class="k">if</span> <span class="n">func</span><span class="o">.</span><span class="n">__name__</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cache__</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__cache__</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">'time'</span><span class="p">:</span> <span class="n">now</span><span class="p">,</span>
+                    <span class="s1">'data'</span><span class="p">:</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="k">if</span> <span class="n">now</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cache__</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">][</span><span class="s1">'time'</span><span class="p">]</span> <span class="o">></span> <span class="n">time_delta</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__cache__</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">'time'</span><span class="p">:</span> <span class="n">now</span><span class="p">,</span>
+                    <span class="s1">'data'</span><span class="p">:</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cache__</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">][</span><span class="s1">'data'</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">func_wrapper</span>
+    <span class="k">return</span> <span class="n">cached</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we can pass an argument to our new decorator with the time period we want the data to be updated (in seconds).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">ECB</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">'http://www.ecb.int/stats/eurofxref/eurofxref-daily.xml'</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__url</span> <span class="o">=</span> <span class="n">url</span>
+    <span class="nd">@property</span>
+    <span class="nd">@cached_till</span><span class="p">(</span><span class="n">time_delta</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__url</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="nb">map</span><span class="p">(</span>
+                <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"@currency"</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s2">"@rate"</span><span class="p">]],</span> 
+                <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                               <span class="p">)[</span><span class="s2">"gesmes:Envelope"</span><span class="p">][</span><span class="s2">"Cube"</span><span class="p">][</span><span class="s2">"Cube"</span><span class="p">][</span><span class="s2">"Cube"</span><span class="p">])</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So, instantiating it again and querying for a first time:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">bank3</span><span class="o">=</span><span class="n">ECB</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+print bank3.data
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{u'USD': u'1.0755', u'IDR': u'14363.56', u'BGN': u'1.9558', u'ILS': u'4.0575', u'GBP': u'0.86105', u'DKK': u'7.4373', u'CAD': u'1.4056', u'MXN': u'22.2855', u'HUF': u'310.64', u'RON': u'4.5030', u'MYR': u'4.7608', u'SEK': u'9.4505', u'SGD': u'1.5201', u'HKD': u'8.3436', u'AUD': u'1.4198', u'CHF': u'1.0668', u'KRW': u'1244.76', u'CNY': u'7.3970', u'TRY': u'4.0632', u'HRK': u'7.4790', u'NZD': u'1.4709', u'THB': u'37.793', u'NOK': u'8.8880', u'RUB': u'64.4302', u'INR': u'72.8005', u'JPY': u'121.94', u'CZK': u'27.021', u'BRL': u'3.3535', u'PLN': u'4.3239', u'PHP': u'53.489', u'ZAR': u'14.4440'}
+CPU times: user 4 ms, sys: 0 ns, total: 4 ms
+Wall time: 193 ms
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The second time it'll use cached data and again take much less time:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+print bank3.data
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{u'USD': u'1.0755', u'IDR': u'14363.56', u'BGN': u'1.9558', u'ILS': u'4.0575', u'GBP': u'0.86105', u'DKK': u'7.4373', u'CAD': u'1.4056', u'MXN': u'22.2855', u'HUF': u'310.64', u'RON': u'4.5030', u'MYR': u'4.7608', u'SEK': u'9.4505', u'SGD': u'1.5201', u'HKD': u'8.3436', u'AUD': u'1.4198', u'CHF': u'1.0668', u'KRW': u'1244.76', u'CNY': u'7.3970', u'TRY': u'4.0632', u'HRK': u'7.4790', u'NZD': u'1.4709', u'THB': u'37.793', u'NOK': u'8.8880', u'RUB': u'64.4302', u'INR': u'72.8005', u'JPY': u'121.94', u'CZK': u'27.021', u'BRL': u'3.3535', u'PLN': u'4.3239', u'PHP': u'53.489', u'ZAR': u'14.4440'}
+CPU times: user 0 ns, sys: 0 ns, total: 0 ns
+Wall time: 189 µs
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>But after enough time the query will update the data as we can see from the time it takes to get it:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+print bank3.data
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{u'USD': u'1.0755', u'IDR': u'14363.56', u'BGN': u'1.9558', u'ILS': u'4.0575', u'GBP': u'0.86105', u'DKK': u'7.4373', u'CAD': u'1.4056', u'MXN': u'22.2855', u'HUF': u'310.64', u'RON': u'4.5030', u'MYR': u'4.7608', u'SEK': u'9.4505', u'SGD': u'1.5201', u'HKD': u'8.3436', u'AUD': u'1.4198', u'CHF': u'1.0668', u'KRW': u'1244.76', u'CNY': u'7.3970', u'TRY': u'4.0632', u'HRK': u'7.4790', u'NZD': u'1.4709', u'THB': u'37.793', u'NOK': u'8.8880', u'RUB': u'64.4302', u'INR': u'72.8005', u'JPY': u'121.94', u'CZK': u'27.021', u'BRL': u'3.3535', u'PLN': u'4.3239', u'PHP': u'53.489', u'ZAR': u'14.4440'}
+CPU times: user 0 ns, sys: 4 ms, total: 4 ms
+Wall time: 174 ms
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As many other times, after a search on Google I realised I have reinvented the wheel and it already existed a library called <a href="https://pypi.python.org/pypi/cached-property/1.2.0">`cached-property`</a> doing exactly this (and surely better than I), but... <strong>Que me quiten lo bailao</strong>.</p>
 </div>
 </div>
 </div>
@@ -1257,12 +1547,12 @@ h6:hover .anchor-link {
 									    Share on:
 									    <ul class="social">
 									    									    
-									      <li class="twitter"><a href="http://twitter.com/home?status=PI4fun%20%28Part%201%29%20http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-2">Twitter</a></li>
-									      <li class="linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html&title=PI4fun%20%28Part%201%29&summary=Estimating%20%24%5Cpi%24%20for%20fun%20%28Part%201%3A%20the%20basics%29%C2%B6The%20proposed%20project%20in%20this%20article%20is%20an%20example%20I%20tend%20to%20use%20in%20my%20Python%20introductory%20courses.%20The%20purpose%20is%20to%20calculate%20a%20dummy%20PI%20estimation%20based%20on%20a%20damn%20simple%20Monte%20Carlo%20algorithm.%0AIt%E2%80%99s%20a%20simple%20and%20fun%20example%20that%20can%20be%20approached%20in%20a%20really%20direct%20and%20simple%20way%2C%20but%20that%20can%20be%20improved%20in%20%20many%20ways.&source=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-4">LinkedIn</a></li>
-									      <li class="googleplus"><a href="https://plus.google.com/share?url=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-6">Google Plus</a></li>
-									      <li class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-1">Facebook</a></li>
-									      <li class="Diaspora"><a href="https://sharetodiaspora.github.io/?title=PI4fun%20%28Part%201%29&url=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-3">Diaspora</a></li>
-									      <li class="Email"><a href="mailto:?subject=PI4fun%20%28Part%201%29&amp;body=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-7">Email</a></li>
+									      <li class="twitter"><a href="http://twitter.com/home?status=Cache%20your%20properties%20with%20a%20decorator%20http%3A//ozroc.github.io/cache-properties-decorator.html" class="icon48 icon48-2">Twitter</a></li>
+									      <li class="linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//ozroc.github.io/cache-properties-decorator.html&title=Cache%20your%20properties%20with%20a%20decorator&summary=This%20is%20a%20wonderful%20Python%20idea%20I%27ve%20found%20quite%20usefull%20and%20fun%20to%20implement.%0AThe%20reason%20of%20the%20need%20comes%20from%20an%20analytics%20project%20I%27m%20working%20on.%0AI%20have%20to%20read%20data%20from%20several%20sources%20%28let%27s%20think%20on%20a%20file%2C%20a%20database%20or%20a%20remote%20query%29%20that%20changes%20at%20predefined%20periods%20%28let%27s%20say%20each%20minute%29.&source=http%3A//ozroc.github.io/cache-properties-decorator.html" class="icon48 icon48-4">LinkedIn</a></li>
+									      <li class="googleplus"><a href="https://plus.google.com/share?url=http%3A//ozroc.github.io/cache-properties-decorator.html" class="icon48 icon48-6">Google Plus</a></li>
+									      <li class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//ozroc.github.io/cache-properties-decorator.html" class="icon48 icon48-1">Facebook</a></li>
+									      <li class="Diaspora"><a href="https://sharetodiaspora.github.io/?title=Cache%20your%20properties%20with%20a%20decorator&url=http%3A//ozroc.github.io/cache-properties-decorator.html" class="icon48 icon48-3">Diaspora</a></li>
+									      <li class="Email"><a href="mailto:?subject=Cache%20your%20properties%20with%20a%20decorator&amp;body=http%3A//ozroc.github.io/cache-properties-decorator.html" class="icon48 icon48-7">Email</a></li>
 
 									  </ul>
 									</section>
