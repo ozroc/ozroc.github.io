@@ -1,0 +1,9 @@
+Title: PI4fun (Part 2)
+Slug: estimating-pi-for-fun-2
+Date: 2017-02-02 15:00
+Category: posts
+Tags: python firsts, tutorial, matplotlib, seaborn, numpy
+share_post: true
+Author: Pablo Manuel García Corzo
+picture: /images/pi_montecarlo_seaborn.png
+Summary: Plotting the MonteCarlo PI estimation process.

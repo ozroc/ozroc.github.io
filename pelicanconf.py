@@ -54,7 +54,7 @@ ABOUT_TEXT = """
 <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="es_ES" data-type="horizontal" data-theme="light" data-vanity="pablomgc"><a class="LI-simple-link" href='https://es.linkedin.com/in/pablomgc?trk=profile-badge'>Pablo Manuel García Corzo</a></div>
 """
 
-DEFAULT_PAGINATION = 10
+DEFAULT_PAGINATION = 6
 
 DISPLAY_CATEGORIES_ON_MENU = True
 
