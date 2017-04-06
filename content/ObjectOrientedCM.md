@@ -5,7 +5,7 @@ Category: posts
 Tags: python, devops, automation, legacy
 Author: Pablo Manuel García Corzo
 picture: /images/devops.png
-Link: http://bluetc.es/en/sharing-and-engaging/a-telecoms-blog/entry/python-and-object-oriented-configuration-management-on-how-to-gently-succeed-in-the-adoption-of-devops-paradigm-for-telecom-players
+Link: http://bluetc.es/en/insights/a-telecoms-blog/entry/python-and-object-oriented-configuration-management-on-how-to-gently-succeed-in-the-adoption-of-devops-paradigm-for-telecom-players
 
 The DevOps paradigm is really cool. Everyone wants to deploy their environments with Puppet on top of OpenStack. It brings reproducibility and scalability at a tremendous speed. This is simply awesome and undoubtedly the way to go forward.
 
