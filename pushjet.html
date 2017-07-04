@@ -96,22 +96,28 @@
 						<div class="12u skel-cell-mainContent">
 							<!-- Content -->
 							<article class="box is-post">
-							  <div class="image image-full"><img src="http://ozroc.github.io//images/darts_pi.svg"/><a href="" class="img-copy"></a></div>
+							  <div class="image image-full"><img src="http://ozroc.github.io//images/pushjet.png"/><a href="" class="img-copy"></a></div>
 
 									<div class="post-infos">
 										<ul class="tags">
 											<li><a class="button" href="category/posts.html">Posts</a></li>
-												<li><a class="button button-alt" href="tag/python-firsts.html">Python firsts</a></li>
+												<li><a class="button button-alt" href="tag/python.html">Python</a></li>
 
 												<li><a class="button button-alt" href="tag/tutorial.html">Tutorial</a></li>
 
-												<li><a class="button button-alt" href="tag/monte-carlo.html">Monte carlo</a></li>
+												<li><a class="button button-alt" href="tag/pushjet.html">Pushjet</a></li>
+
+												<li><a class="button button-alt" href="tag/monitoring.html">Monitoring</a></li>
+
+												<li><a class="button button-alt" href="tag/notifications.html">Notifications</a></li>
+
+												<li><a class="button button-alt" href="tag/android.html">Android</a></li>
 
 										</ul>
 									</div>
 
-									<div class="pennant pennant-alt date">2016-12-05</div>
-									<h2>PI4fun (Part 1)</h2>
+									<div class="pennant pennant-alt date">2017-07-04</div>
+									<h2>Send notifications to your phone with PushJet</h2>
 									<style type="text/css">/*!
 *
 * IPython notebook
@@ -1089,14 +1095,16 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Estimating-$\pi$-for-fun-(Part-1:-the-basics)">Estimating $\pi$ for fun (Part 1: the basics)<a class="anchor-link" href="#Estimating-$\pi$-for-fun-(Part-1:-the-basics)">¶</a></h1><p>The proposed project in this article is an example I tend to use in my Python introductory courses. The purpose is to calculate a dummy PI estimation based on a damn simple <a href="https://en.wikipedia.org/wiki/Monte_Carlo_algorithm">Monte Carlo</a> algorithm.</p>
-<p>It’s a simple and fun example that can be approached in a really direct and simple way, but that can be improved in  many ways.</p>
-<p>Let's start by imagining a blind darts player.</p>
-<p><img src="/images/darts_pi.svg" , width="50%" , align="left"></p>
-<p>If we assume he performs completely random shots, the ratio between the darts inside a unit circle target and the corresponding unit square target will be equal to the ratio between the well known areas of the unit square and the unit circle:</p>
-\begin{equation*}
-\frac{D_c}{D_s} = \frac{\pi r^2}{(2r)^2} = \frac 1 4 \pi \to \pi = 4 \frac{D_c}{D_s}
-\end{equation*}<p>So, our approach will be to simulate random shots and cout how many of them hit inside the circle target and how many of them don't.</p>
+<p>Recently, I've faced the need of monitoring some basic checks in my laptop and wanted to be rapidly notified about them. Basically I have a small script scheduled in my crontab and want it to clearly notify me when it returns errors. My real task was a little bit more complicated, but let's say I just wanted to check the free space on root partition.</p>
+<p>The first obvious option was to just send an email I can see in my mobile phone, but that was boring and due to the amount of mails I receive everyday it would be easy to ignore the notification. Another option would be to write a telegram bot, but I fond the solution a little bit oversized for my needs.</p>
+<p>I just want to easily send a push notification in my android phone. It should be easy!</p>
+<p>After a little bit of googling I found <a href="http://pushjet.io">Pushjet</a> as the perfect tool for my needs:</p>
+<ul>
+<li>It's free as in free beer and offered as a service.</li>
+<li>It's free as in freedom (GPL compatible) and I could host my own broker if needed (mainly for security reasons).</li>
+<li>It has a damn simple python library to use it.</li>
+</ul>
+<p>So let's start with it.</p>
 </div>
 </div>
 </div>
@@ -1105,7 +1113,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In Python, we can easily generate random numbers using the random module. With ´random.random()´ we can generate random numbers between 0 and 1:</p>
+<h2 id="Monitoring-the-free-space-in-my-machine">Monitoring the free space in my machine<a class="anchor-link" href="#Monitoring-the-free-space-in-my-machine">¶</a></h2><p>First of all let's get from python the free space I have in my laptop:</p>
 </div>
 </div>
 </div>
@@ -1114,8 +1122,12 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-<span class="k">print</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">"df"</span><span class="p">,</span> <span class="s2">"-h"</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'%'</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">>=</span> <span class="mi">75</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1125,7 +1137,7 @@ h6:hover .anchor-link {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0.629933985288
+<pre>/dev/sda5        429G   365G   42G  90% /home
 </pre>
 </div>
 </div>
@@ -1137,7 +1149,17 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>With a couple of random numbers we can define a point in 2D space.</p>
+<p>Basically, this lines of code print "df -h" output lines if the free space is less than 50%. In this case you can see my home partition has only a 10% of free space, so I would like it to be notified.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Setting-up-Pushjet-services">Setting up Pushjet services<a class="anchor-link" href="#Setting-up-Pushjet-services">¶</a></h2><p>Now we'll start with pushjet itself.</p>
+<p>First of all, we need to install the <a href="https://pushjet.readthedocs.io/en/latest/">pushjet python api</a> via pip:</p>
 </div>
 </div>
 </div>
@@ -1146,9 +1168,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> pip install --upgrade pushjet
 </pre></div>
 </div>
 </div>
@@ -1158,7 +1178,13 @@ h6:hover .anchor-link {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(0.9696406993993923, 0.5337101093708417)
+<pre>Requirement already up-to-date: pushjet in /home/bluetc/miniconda3/lib/python3.6/site-packages
+Requirement already up-to-date: requests<3.0.0,>=2.11.1 in /home/bluetc/miniconda3/lib/python3.6/site-packages (from pushjet)
+Requirement already up-to-date: decorator<5.0.0,>=4.0.6 in /home/bluetc/miniconda3/lib/python3.6/site-packages (from pushjet)
+Requirement already up-to-date: urllib3<1.22,>=1.21.1 in /home/bluetc/miniconda3/lib/python3.6/site-packages (from requests<3.0.0,>=2.11.1->pushjet)
+Requirement already up-to-date: certifi>=2017.4.17 in /home/bluetc/miniconda3/lib/python3.6/site-packages (from requests<3.0.0,>=2.11.1->pushjet)
+Requirement already up-to-date: chardet<3.1.0,>=3.0.2 in /home/bluetc/miniconda3/lib/python3.6/site-packages (from requests<3.0.0,>=2.11.1->pushjet)
+Requirement already up-to-date: idna<2.6,>=2.5 in /home/bluetc/miniconda3/lib/python3.6/site-packages (from requests<3.0.0,>=2.11.1->pushjet)
 </pre>
 </div>
 </div>
@@ -1170,7 +1196,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, we have to define a variable to store the shots hitting the target, start launching random shots and counting how many of then hit the target:</p>
+<p>Now we have to create a service (a communication channel):</p>
 </div>
 </div>
 </div>
@@ -1179,36 +1205,9 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">Inside</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">Total</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Total</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o"><</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># Target!</span>
-        <span class="n">Inside</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Our $\pi$ approximation will be</p>
-\begin{equation*}
-\pi\approx 4\frac{I}{T}
-\end{equation*}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [4]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_pi</span> <span class="o">=</span> <span class="mf">4.</span><span class="o">*</span><span class="n">Inside</span><span class="o">/</span><span class="n">Total</span>
-<span class="k">print</span> <span class="s2">"With </span><span class="si">%s</span><span class="s2"> random shots we've obtained an approximation of pi = </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">Total</span><span class="p">,</span> <span class="n">my_pi</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pushjet</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pushjet</span><span class="o">.</span><span class="n">Service</span><span class="o">.</span><span class="n">create</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1218,7 +1217,15 @@ h6:hover .anchor-link {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>With 100 random shots we've obtained an approximation of pi = 3.24
+<pre>Help on method create in module pushjet.pushjet:
+
+create(name, icon_url=None) method of builtins.type instance
+    Create a new service.
+    
+    :param name: The name of the new service.
+    :param icon_url: (optional) An URL to an image to be used as the service's icon.
+    :return: The newly-created :class:`~pushjet.Service`.
+
 </pre>
 </div>
 </div>
@@ -1230,7 +1237,168 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In next posts, we'll evolve this really simple example to make use of several interesting things such as structuring our code with functions and classes, applying several ways of optimization or drawing nice plots for illustrating the results.</p>
+<p>As you can see, we just need to give it a name and (optionally) an icon. I've choosed this one:
+<img alt="img" src="http://icongal.com/gallery/image/338109/linux_hdd_hd_os_hardware_disk.png" /></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_service</span> <span class="o">=</span> <span class="n">pushjet</span><span class="o">.</span><span class="n">Service</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="s2">"My Laptop free space"</span><span class="p">,</span> 
+    <span class="s2">"http://icongal.com/gallery/image/338109/linux_hdd_hd_os_hardware_disk.png"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>At this point, we already have a my_service object ready to send messages. 
+It has two relevant keys (a public and a private one) and that's all the information we need to send and receive the messages.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Secret Key: </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">my_service</span><span class="o">.</span><span class="n">secret_key</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Public Key: </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">my_service</span><span class="o">.</span><span class="n">public_key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Secret Key: bbed46983e4ed8fbaea690f1177eec6b
+Public Key: 7e6e-f02764-f740fbe71d39-b0c6a-e32d82888
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Save those keys in a secure place.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Android-client-subscription">Android client subscription<a class="anchor-link" href="#Android-client-subscription">¶</a></h2><p>I want to receive the notifications in my android phone. Just <a href="https://play.google.com/store/apps/details?id=io.Pushjet.api">install the app from Google Play</a>.</p>
+<p>Once you have the app installed and opened you'll have to subscribe to the service. For that purpose, you'll only need the previously given publick key as a token. The app allows you to enter it manually or scan a QR. As I'm too lazy to enter a so long key I'll ask <a href="https://pypi.python.org/pypi/qrcode">qrcode</a> python library to generate a QR for me:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">qrcode</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">qrcode</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">my_service</span><span class="o">.</span><span class="n">public_key</span><span class="p">)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'pushjet_public_key.png'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img alt="img" src="pushjet_public_key.png" /></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So now we can just scan the token and create a new subscription:</p>
+<p><img src="images/pushjet_subscriptions.png" width="200" /></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Sending-notifications-from-Python">Sending notifications from Python<a class="anchor-link" href="#Sending-notifications-from-Python">¶</a></h2><p>Now we'll just send the notifications, we just need the pushjet libraries we've allready installed and the secret key we've previously saved.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">service</span> <span class="o">=</span> <span class="n">pushjet</span><span class="o">.</span><span class="n">Service</span><span class="p">(</span><span class="n">my_service</span><span class="o">.</span><span class="n">secret_key</span><span class="p">)</span>
+<span class="n">service</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">"Hello World"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And that's it, you'll have a beautifull notification in your phone!</p>
+<p><img src="images/pushjet_message.png" width="200" /></p>
+<p>After all, we want to put in the messages useful information, going back to the first example we can substitute the print statement with call to Pushjet's service.send.</p>
+<p>A full functional script to be run periodically could be:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pushjet</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="n">secret_key</span><span class="o">=</span><span class="s2">"bbed46983e4ed8fbaea690f1177eec6b"</span>
+<span class="n">service</span> <span class="o">=</span> <span class="n">pushjet</span><span class="o">.</span><span class="n">Service</span><span class="p">(</span><span class="n">secret_key</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">"df"</span><span class="p">,</span> <span class="s2">"-h"</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'%'</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">>=</span> <span class="mi">75</span><span class="p">:</span>
+        <span class="n">service</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/pushjet_disk.png" width="200" /></p>
+<p>Now you only have to think about your own real-world use cases.</p>
 </div>
 </div>
 </div>
@@ -1271,12 +1439,12 @@ h6:hover .anchor-link {
 									    Share on:
 									    <ul class="social">
 									    									    
-									      <li class="twitter"><a href="http://twitter.com/home?status=b'PI4fun%20%28Part%201%29%20http%3A//ozroc.github.io/estimating-pi-for-fun-1.html'" class="icon48 icon48-2">Twitter</a></li>
-									      <li class="linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html&title=PI4fun%20%28Part%201%29&summary=Estimating%20%24%5Cpi%24%20for%20fun%20%28Part%201%3A%20the%20basics%29%C2%B6The%20proposed%20project%20in%20this%20article%20is%20an%20example%20I%20tend%20to%20use%20in%20my%20Python%20introductory%20courses.%20The%20purpose%20is%20to%20calculate%20a%20dummy%20PI%20estimation%20based%20on%20a%20damn%20simple%20Monte%20Carlo%20algorithm.%0AIt%E2%80%99s%20a%20simple%20and%20fun%20example%20that%20can%20be%20approached%20in%20a%20really%20direct%20and%20simple%20way%2C%20but%20that%20can%20be%20improved%20in%20%20many%20ways.&source=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-4">LinkedIn</a></li>
-									      <li class="googleplus"><a href="https://plus.google.com/share?url=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-6">Google Plus</a></li>
-									      <li class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-1">Facebook</a></li>
-									      <li class="Diaspora"><a href="https://sharetodiaspora.github.io/?title=PI4fun%20%28Part%201%29&url=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-3">Diaspora</a></li>
-									      <li class="Email"><a href="mailto:?subject=PI4fun%20%28Part%201%29&amp;body=http%3A//ozroc.github.io/estimating-pi-for-fun-1.html" class="icon48 icon48-7">Email</a></li>
+									      <li class="twitter"><a href="http://twitter.com/home?status=b'Send%20notifications%20to%20your%20phone%20with%20PushJet%20http%3A//ozroc.github.io/pushjet.html'" class="icon48 icon48-2">Twitter</a></li>
+									      <li class="linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//ozroc.github.io/pushjet.html&title=Send%20notifications%20to%20your%20phone%20with%20PushJet&summary=Recently%2C%20I%27ve%20faced%20the%20need%20of%20monitoring%20some%20basic%20checks%20in%20my%20laptop%20and%20wanted%20to%20be%20rapidly%20notified%20about%20them.%20Basically%20I%20have%20a%20small%20script%20scheduled%20in%20my%20crontab%20and%20want%20it%20to%20clearly%20notify%20me%20when%20it%20returns%20errors.%20My%20real%20task%20was%20a%20little%20bit%20more%20complicated%2C%20but%20let%27s%20say%20I%20just%20wanted%20to%20check%20the%20free%20space%20on%20root%20partition.&source=http%3A//ozroc.github.io/pushjet.html" class="icon48 icon48-4">LinkedIn</a></li>
+									      <li class="googleplus"><a href="https://plus.google.com/share?url=http%3A//ozroc.github.io/pushjet.html" class="icon48 icon48-6">Google Plus</a></li>
+									      <li class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//ozroc.github.io/pushjet.html" class="icon48 icon48-1">Facebook</a></li>
+									      <li class="Diaspora"><a href="https://sharetodiaspora.github.io/?title=Send%20notifications%20to%20your%20phone%20with%20PushJet&url=http%3A//ozroc.github.io/pushjet.html" class="icon48 icon48-3">Diaspora</a></li>
+									      <li class="Email"><a href="mailto:?subject=Send%20notifications%20to%20your%20phone%20with%20PushJet&amp;body=http%3A//ozroc.github.io/pushjet.html" class="icon48 icon48-7">Email</a></li>
 
 									  </ul>
 									</section>

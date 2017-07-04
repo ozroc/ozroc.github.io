@@ -273,6 +273,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -293,11 +294,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -1035,8 +1031,10 @@ h6:hover .anchor-link {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -1047,9 +1045,11 @@ h6:hover .anchor-link {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
 <style type="text/css">
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
@@ -1119,7 +1119,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>my_pi = 3.088
 </pre>
@@ -1195,7 +1196,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>3.216
 </pre>
@@ -1235,7 +1237,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAb4AAAG2CAYAAAAA3uOEAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAAPYQAAD2EBqD+naQAAIABJREFUeJzsnWVYVGkbgO8ZhpJQpBQRA4UFRcXujrVj0bW7u3t17bUL
@@ -3321,8 +3324,8 @@ AkGeQig+gUAgEOQphOITCAQCQZ5CKD6BQCAQ5CmE4hMIBAJBnkIoPoFAIBDkKYTiEwgEAkGeQig+
 gUAgEOQphOITCAQCQZ5CKD6BQCAQ5CmE4hMIBAJBnkIoPoFAIBDkKYTiEwgEAkGeQig+gUAgEOQp
 hOITCAQCQZ5CKD6BQCAQ5CmE4hMIBAJBnkIoPoFAIBDkKYTiEwgEAkGeQig+gUAgEOQp/geqCbbS
 atDlmwAAAABJRU5ErkJggg==
-">
-</img></div>
+" />
+</div>
 </div>
 </div>
 </div>
@@ -3364,7 +3367,8 @@ atDlmwAAAABJRU5ErkJggg==
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0MAAAG4CAYAAACHCjwcAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAAPYQAAD2EBqD+naQAAIABJREFUeJzs3Xl8lOW9///XzGTfNxLCkhCSQAIJu+woomyyuCHulrZ+
@@ -3816,8 +3820,8 @@ R8ApJSXa6XSDhx56qMX7b3OnyQ0cOJChQ4dy//33U1dXx5YtW5g7dy433nhj0NEktRLngCTngCRI
 Sc4BSRDcLAisDEmSJElSkNrcaXKSJEmS1BosQ5IkSZJSkmVIkiRJUkqyDEmSJElKSZYhSZIkSSnJ
 MiRJkiQpJVmGJEmSJKUky5AkSZKklGQZkiRJkpSSLEOSJEmSUpJlSJIkSVJKsgxJkiRJSkn/H2SO
 kY1qV6UIAAAAAElFTkSuQmCC
-">
-</img></div>
+" />
+</div>
 </div>
 </div>
 </div>
@@ -3834,7 +3838,8 @@ kY1qV6UIAAAAAElFTkSuQmCC
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>3.212
 </pre>
@@ -3869,7 +3874,8 @@ partial_pi= map(lambda x: 4.0*sum(inside_hits[:x])/(x+1), range(len(inside_hits)
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>CPU times: user 576 ms, sys: 0 ns, total: 576 ms
 Wall time: 572 ms
@@ -3900,7 +3906,8 @@ Wall time: 572 ms
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0MAAAG4CAYAAACHCjwcAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAAPYQAAD2EBqD+naQAAIABJREFUeJzs3XV0VEcbwOHfxj0kRIBAQgwIUJwiRYuVAi30KxRKcfdS
@@ -6698,8 +6705,8 @@ Fh8fz9SpUzly5Ii2hXHEiBEGjljoQuq14pE6rZgMVa+SDAkhhBBCCCEqJZn/UwghhBBCCFEpSTIk
 hBBCCCGEqJQkGRJCCCGEEEJUSpIMCSGEEEIIISolSYaEEEIIIYQQlZIkQ0IIIYQQQohKSZIhIYQQ
 QgghRKUkyZAQQgghhBCiUpJkSAghhBBCCFEpSTIkhBBCCCGEqJQkGRJCCCGEEEJUSpIMCSGEEEII
 ISql/wNMA0loO7UnIgAAAABJRU5ErkJggg==
-">
-</img></div>
+" />
+</div>
 </div>
 </div>
 </div>
@@ -6716,7 +6723,8 @@ ISql/wNMA0loO7UnIgAAAABJRU5ErkJggg==
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>3.136
 </pre>
@@ -6734,6 +6742,7 @@ ISql/wNMA0loO7UnIgAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -6770,7 +6779,7 @@ ISql/wNMA0loO7UnIgAAAABJRU5ErkJggg==
 									    Share on:
 									    <ul class="social">
 									    									    
-									      <li class="twitter"><a href="http://twitter.com/home?status=PI4fun%20%28Part%202%29%20http%3A//ozroc.github.io/estimating-pi-for-fun-2.html" class="icon48 icon48-2">Twitter</a></li>
+									      <li class="twitter"><a href="http://twitter.com/home?status=b'PI4fun%20%28Part%202%29%20http%3A//ozroc.github.io/estimating-pi-for-fun-2.html'" class="icon48 icon48-2">Twitter</a></li>
 									      <li class="linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//ozroc.github.io/estimating-pi-for-fun-2.html&title=PI4fun%20%28Part%202%29&summary=Estimating%20%20%24%5Cpi%24%20%20for%20fun%20%28Part%202%3A%20illustrating%20the%20process%29%C2%B6In%20previous%20post%20we%20could%20see%20how%20to%20estimate%20%24%5Cpi%24%20value%20with%20a%20simple%20Monte%20Carlo%20algorithm.%0ANow%20we%27re%20going%20to%20illustrate%20the%20process%20with%20some%20simple%20plots.%0ALet%27s%20remember%20the%20code%20we%20prevously%20had%3A&source=http%3A//ozroc.github.io/estimating-pi-for-fun-2.html" class="icon48 icon48-4">LinkedIn</a></li>
 									      <li class="googleplus"><a href="https://plus.google.com/share?url=http%3A//ozroc.github.io/estimating-pi-for-fun-2.html" class="icon48 icon48-6">Google Plus</a></li>
 									      <li class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//ozroc.github.io/estimating-pi-for-fun-2.html" class="icon48 icon48-1">Facebook</a></li>
@@ -6810,6 +6819,20 @@ ISql/wNMA0loO7UnIgAAAABJRU5ErkJggg==
 										<h2>Latest articles</a></h2>
 									</header>
 									<ul class="dates">
+										<li>
+											<a href="http://ozroc.github.io/pushjet.html"><span class="date">jul <strong>04</strong></span></a>
+											<h3><a href="http://ozroc.github.io/pushjet.html">Send notifications to your phone with PushJet</a></h3>Pablo Manuel García Corzo
+											<p>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Recently, I've faced the need of monitoring some basic checks in my laptop and wanted to be rapidly notified about them. Basically I have a small script scheduled in my crontab and want it to clearly notify me when it returns errors. My real task was a little bit more complicated, but let's say I just wanted to check the free space on root partition.</p></p>
+											<br>
+											<a href="http://ozroc.github.io/pushjet.html" class="button-mini button-icon button-icon-1">Continue Reading</a>
+											
+										</li>
 										<li>
 											<a href="http://ozroc.github.io/estimating-pi-for-fun-2.html"><span class="date">feb <strong>02</strong></span></a>
 											<h3><a href="http://ozroc.github.io/estimating-pi-for-fun-2.html">PI4fun (Part 2)</a></h3>Pablo Manuel García Corzo
@@ -6854,21 +6877,6 @@ ISql/wNMA0loO7UnIgAAAABJRU5ErkJggg==
 <p>Relacionar los recientes ...</p></p>
 											<br>
 											<a href="http://ozroc.github.io/randomware-mongodb.html" class="button-mini button-icon button-icon-1">Continue Reading</a>
-											
-										</li>
-										<li>
-											<a href="http://ozroc.github.io/estimating-pi-for-fun-1.html"><span class="date">dic <strong>05</strong></span></a>
-											<h3><a href="http://ozroc.github.io/estimating-pi-for-fun-1.html">PI4fun (Part 1)</a></h3>Pablo Manuel García Corzo
-											<p>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Estimating-$\pi$-for-fun-(Part-1:-the-basics)">Estimating $\pi$ for fun (Part 1: the basics)<a class="anchor-link" href="#Estimating-$\pi$-for-fun-(Part-1:-the-basics)">¶</a></h1><p>The proposed project in this article is an example I tend to use in my Python introductory courses. The purpose is to calculate a dummy PI estimation based on a damn simple <a href="https://en.wikipedia.org/wiki/Monte_Carlo_algorithm">Monte Carlo</a> algorithm.</p>
-<p>It’s a simple and fun example that can be approached in a really direct and simple way, but that can be improved in  many ways.</p></p>
-											<br>
-											<a href="http://ozroc.github.io/estimating-pi-for-fun-1.html" class="button-mini button-icon button-icon-1">Continue Reading</a>
 											
 										</li>
 									</ul>
