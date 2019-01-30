@@ -12,8 +12,6 @@
 			<meta charset="utf-8" />
 			<link href="http://ozroc.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Awesome Adventures of a Drinking Bird Full Atom Feed" />
 			<link href="http://ozroc.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="The Awesome Adventures of a Drinking Bird Full RSS Feed" />
-			<link href="http://ozroc.github.io/feeds/posts.atom.xml" type="application/atom+xml" rel="alternate" title="The Awesome Adventures of a Drinking Bird Categories Atom Feed" />
-			<link href="http://ozroc.github.io/feeds/posts.rss.xml" type="application/rss+xml" rel="alternate" title="The Awesome Adventures of a Drinking Bird Categories RSS Feed" />
 			<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic" rel="stylesheet" />
 				<link rel="stylesheet" href="/theme/css/pygment.css" />
 			<noscript>
@@ -89,86 +87,100 @@
 			<div id="main-wrapper">
 				<div class="container">
 <div class="row">
-	<div class="12u">
-			<section>
-				<div>
-					<div class="row">
-						<div class="12u skel-cell-mainContent">
-							<!-- Content -->
-							<article class="box is-post">
-							  <div class="image image-full"><img src="http://ozroc.github.io//images/microwavecat.png"/><a href="" class="img-copy"></a></div>
-
-									<div class="post-infos">
-										<ul class="tags">
-											<li><a class="button" href="category/posts.html">Posts</a></li>
-												<li><a class="button button-alt" href="tag/security.html">Security</a></li>
-
-												<li><a class="button button-alt" href="tag/mongodb.html">Mongodb</a></li>
-
-												<li><a class="button button-alt" href="tag/free-software.html">Free software</a></li>
-
-												<li><a class="button button-alt" href="tag/open-source.html">Open source</a></li>
-
-										</ul>
-									</div>
-
-									<div class="pennant pennant-alt date">2017-01-30</div>
-									<h2>Ola de ataques de ransomware: ¿pone en entredicho la seguridad de MongoDB y otras bases de datos libres?</h2>
-									<p>Se están leyendo estos días multitud de noticias acerca de ataques ransomware a determinadas bases de datos como <a href="http://www.itworldcanada.com/article/ransomware-attacks-on-insecure-hadoop-systems-may-be-next-say-security-researchers/389944">Hadoop</a>, <a href="http://www.cbronline.com/news/cybersecurity/breaches/mongodb-elasticsearch-hackers-now-target-hadoop-ransomware/">ElasticSearch</a>, <a href="https://www.bleepingcomputer.com/news/security/database-ransom-attacks-hit-couchdb-and-hadoop-servers/">Couchdb</a> o <a href="http://www.theregister.co.uk/2017/01/04/mongodb_installs_wiped_by_bitcoin_ransoming_script/">MongoDB</a> y en algunos medios <a href="http://www.elconfidencial.com/tecnologia/2017-01-10/mongodb-hackers-ataque-informatico-bases-datos-servidores_1314168/">se relacionan los ataques con el hecho de que se trate en todos esos casos de productos de software libre</a>.</p>
-<p>Relacionar los recientes ataques con el hecho de que se trate de software libre o privativo no es acertado. Si atendemos a los detalles, los atacantes no se están aprovechando de ningún tipo de agujero de seguridad en estos productos, tan solo de configuraciones deficientes.</p>
-<p>El problema real detrás de los recientes casos es sencillamente un problema de inversión. Hay históricamente mucha tendencia a asimilar software libre como sinónimo de software gratuito, pero esto es un gran error de concepto contra el que el mundo del software libre lleva luchando muchos años. En inglés, donde la ambigüedad del término “free software” ha alimentado la confusión, se suele hablar de este tema diferenciando entre software “free as in freedom but not as in free beer”.</p>
-<blockquote>
-<p>Es cierto que una empresa en ocasiones puede ahorrar costes usando software libre y desplegándolo sobre sus propios sistemas, pero eso significa responsabilizarse de la configuración y posterior mantenimiento de sus productos.</p>
-</blockquote>
-<p>Evidentemente, en muchos casos integrar un equipo de expertos para una necesidad puntual no encaja con el modelo de negocio de la empresa. En estos casos siempre se puede delegar esa tarea bien contratando el servicio a un tercero o acudiendo a un servicio en la nube (léase el caso de <a href="https://www.mongodb.com/cloud/atlas">Atlas</a> para MongoDB, por ejemplo).</p>
-<p>El caso de los ataques ransomware que salen estos días a la luz, es el de una hipotética empresa que ha apostado por ahorrarse todos los costes posibles montando un producto de software libre por sí misma (cosa absolutamente legítima) pero sin contar con la experiencia y el conocimiento necesarios para configurar correctamente la aplicación y llevar a cabo una auditoría de seguridad.</p>
-<p>Digo esto porque los ataques que se han dado han sido sobre instalaciones sin securizar. No estamos hablando de tomar medidas de precaución adicionales como proteger las bases de datos tras un cortafuegos, sino de seguir <a href="https://docs.mongodb.com/manual/security/">las instrucciones de securización</a> reflejadas en el manual del producto. El resultado, a fin de cuentas, es que se han dejado esas bases de datos completamente abiertas a Internet y sin que sea necesaria una simple password para acceder a ellas.</p>
-<blockquote>
-<p>Si dejas abiertas de par en par las puertas de tu casa y entran los ladrones no significa que tu casa sea insegura. Es tu responsabilidad. A nadie se le ocurriría pedir cuentas al fabricante de la cerradura de la puerta en un caso así.</p>
-</blockquote>
-<p>Otra cosa sería que se hubieran descubierto vulnerabilidades reales con las que el ladrón puede de verdad saltarse la seguridad de una plataforma correctamente configurada. Eso puede suceder y sucede en cualquier producto (independientemente de que sea <a href="https://www.cvedetails.com/vulnerability-list/vendor_id-12752/product_id-25450/Mongodb-Mongodb.html">libre</a> o <a href="https://www.cvedetails.com/vulnerability-list/vendor_id-93/product_id-467/cvssscoremin-5/cvssscoremax-5.99/Oracle-Database-Server.html">privativo</a>) y ante estas incidencias no hay más prevención posible que mantener al día las actualizaciones de seguridad liberadas por los desarrolladores.
-En general y por la propia naturaleza del software de código abierto, es más difícil que esto suceda en software libre que en productos privativos. Cuando el código de tu producto es accesible a cualquiera, los protocolos de seguridad han de ser reales.</p>
-<blockquote>
-<p>Liberar el código significa enseñar a los posibles ladrones los planos de tu casa en los que se detalla el tipo de alarmas instaladas o la cerradura que tienes en la puerta.</p>
-</blockquote>
-<p>El sistema debe ser seguro por diseño y suele haber una verdadera comunidad de observadores imparciales, expertos en la materia, que no dudan en señalar los eventuales defectos para que sean solucionados.
-En el caso del software privativo, esos observadores dejan de ser imparciales, porque sólo los empleados de la empresa tienen acceso al código del producto. En algunos casos las empresas se cobijan sencillamente en que el secreto protege de que los ladrones encuentren esos agujeros de seguridad y los utilicen, pero esos problemas suelen terminar apareciendo tarde o temprano.</p>
-<p>En definitiva, lo que estos casos ponen de manifiesto no es un problema de seguridad intrínseco a los productos de software libre, sino un problema de responsabilidad de los usuarios de los mismos.</p>
-<blockquote>
-<p>Si pretendiéramos responsabilizar de algún modo a MongoDB o a otro de los productos afectados por estos casos de ransomware sólo les podríamos exigir introducir notas en sus manuales acercándonos al paradigmático extremo de especificar que no se debe introducir un gato en el microondas.</p>
-</blockquote>
+<div class="12u">
+    <section>
+            <div class="row">
+                <div class="4u">
+                    <section class="box">
+                        <a href="http://ozroc.github.io/estimating-pi-for-fun-1.html" class="image image-full"><img src="http://ozroc.github.io//images/darts_pi.svg" alt=""/></a>
+                        <header>
 
 
-									
-									<section>
-									  <p>
-									    Share on:
-									    <ul class="social">
-									    									    
-									      <li class="twitter"><a href="http://twitter.com/home?status=Ola%20de%20ataques%20de%20ransomware%3A%20%C2%BFpone%20en%20entredicho%20la%20seguridad%20de%20MongoDB%20y%20otras%20bases%20de%20datos%20libres%3F%20http%3A//ozroc.github.io/randomware-mongodb.html" class="icon48 icon48-2">Twitter</a></li>
-									      <li class="linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//ozroc.github.io/randomware-mongodb.html&title=Ola%20de%20ataques%20de%20ransomware%3A%20%C2%BFpone%20en%20entredicho%20la%20seguridad%20de%20MongoDB%20y%20otras%20bases%20de%20datos%20libres%3F&summary=Se%20est%C3%A1n%20leyendo%20estos%20d%C3%ADas%20multitud%20de%20noticias%20acerca%20de%20ataques%20ransomware%20a%20determinadas%20bases%20de%20datos%20como%20Hadoop%2C%20ElasticSearch%2C%20Couchdb%20o%20MongoDB%20y%20en%20algunos%20medios%20se%20relacionan%20los%20ataques%20con%20el%20hecho%20de%20que%20se%20trate%20en%20todos%20esos%20casos%20de%20productos%20de%20software%20libre.%0ARelacionar%20los%20recientes%20...&source=http%3A//ozroc.github.io/randomware-mongodb.html" class="icon48 icon48-4">LinkedIn</a></li>
-									      <li class="googleplus"><a href="https://plus.google.com/share?url=http%3A//ozroc.github.io/randomware-mongodb.html" class="icon48 icon48-6">Google Plus</a></li>
-									      <li class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//ozroc.github.io/randomware-mongodb.html" class="icon48 icon48-1">Facebook</a></li>
-									      <li class="Diaspora"><a href="https://sharetodiaspora.github.io/?title=Ola%20de%20ataques%20de%20ransomware%3A%20%C2%BFpone%20en%20entredicho%20la%20seguridad%20de%20MongoDB%20y%20otras%20bases%20de%20datos%20libres%3F&url=http%3A//ozroc.github.io/randomware-mongodb.html" class="icon48 icon48-3">Diaspora</a></li>
-									      <li class="Email"><a href="mailto:?subject=Ola%20de%20ataques%20de%20ransomware%3A%20%C2%BFpone%20en%20entredicho%20la%20seguridad%20de%20MongoDB%20y%20otras%20bases%20de%20datos%20libres%3F&amp;body=http%3A//ozroc.github.io/randomware-mongodb.html" class="icon48 icon48-7">Email</a></li>
+			  <ul class="dates">
+			    <li>
+			      <span class="date">dic <strong>05</strong></span>			  
+                              <h3>PI4fun (Part 1)</h3>
+			      <span class="byline">Pablo Manuel García Corzo</span>  
+			  </ul>    
+                        </header>
+                        <p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Estimating-$\pi$-for-fun-(Part-1:-the-basics)">Estimating $\pi$ for fun (Part 1: the basics)<a class="anchor-link" href="#Estimating-$\pi$-for-fun-(Part-1:-the-basics)">¶</a></h1><p>The proposed project in this article is an example I tend to use in my Python introductory courses. The purpose is to calculate a dummy PI estimation based on a damn simple <a href="https://en.wikipedia.org/wiki/Monte_Carlo_algorithm">Monte Carlo</a> algorithm.</p>
+<p>It’s a simple and fun example that can be approached in a really direct and simple way, but that can be improved in  many ways.</p><p>
+                        <footer class="actions">
+			  <a href="http://ozroc.github.io/estimating-pi-for-fun-1.html" class="button button-icon button-icon-1">Continue Reading</a>
+                        </footer>
+                    </section>
+                </div>
+                <div class="4u">
+                    <section class="box">
+                        <a href="http://ozroc.github.io/object-orientes-configuration-management.html" class="image image-full"><img src="http://ozroc.github.io//images/devops.png" alt=""/></a>
+                        <header>
 
-									  </ul>
-									</section>
-								</article>
- <div id="disqus_thread" class="box"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'ozroc';
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-						</div>
-					</div>
-				</div>
-			</section>
-	</div>
+
+			  <ul class="dates">
+			    <li>
+			      <span class="date">oct <strong>17</strong></span>			  
+                              <h3>Python and Object Oriented Configuration Management</h3>
+			      <span class="byline">Pablo Manuel García Corzo</span>  
+			  </ul>    
+                        </header>
+                        <p><p>The DevOps paradigm is really cool. Everyone wants to deploy their environments with Puppet on top of OpenStack. It brings reproducibility and scalability at a tremendous speed. This is simply awesome and undoubtedly the way to go forward.</p>
+<p>Almost nobody will discuss the benefits of adopting a standard DevOps paradigm ...</p><p>
+                        <footer class="actions">
+			  <a href="http://bluetc.es/en/insights/a-telecoms-blog/entry/python-and-object-oriented-configuration-management-on-how-to-gently-succeed-in-the-adoption-of-devops-paradigm-for-telecom-players" class="button button-icon button-icon-3">Follow Link</a>
+                        </footer>
+                    </section>
+                </div>
+                <div class="4u">
+                    <section class="box">
+                        <a href="http://ozroc.github.io/pydata-2016.html" class="image image-full"><img src="http://ozroc.github.io//images/pydata-madrid-2016-talk.jpg" alt=""/></a>
+                        <header>
+
+
+			  <ul class="dates">
+			    <li>
+			      <span class="date">abr <strong>09</strong></span>			  
+                              <h3>Pydata Madrid 2016 video: Towards a full stack python monitoring+analytics framework</h3>
+			      <span class="byline">Pablo Manuel García Corzo</span>  
+			  </ul>    
+                        </header>
+                        <p><p>Presentation for <a href="http://pydata.org/madrid2016/schedule/presentation/14/index.html">PyData Madrid 2016</a>: <a href="https://youtu.be/-iqzbahA23Q?list=PLGVZCDnMOq0o43_3tHLAblfdOWwFFg76T"><strong>Towards a full stack python monitoring+analytics framework</strong></a></p>
+<p>In this talk, we attempt to design a full stack python monitoring+analytics framework capable to face those new challenges. For such a purpose we study several state of the art libraries and tools covering all the ...</p><p>
+                        <footer class="actions">
+			  <a href="http://ozroc.github.io/pydata-2016.html" class="button button-icon button-icon-1">Continue Reading</a>
+                        </footer>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="4u">
+                    <section class="box">
+                        <a href="http://ozroc.github.io/pydata-2016-teaser.html" class="image image-full"><img src="http://ozroc.github.io//images/pydata-logo-madrid-2016.png" alt=""/></a>
+                        <header>
+
+
+			  <ul class="dates">
+			    <li>
+			      <span class="date">mar <strong>29</strong></span>			  
+                              <h3>Towards a full stack Python monitoring+analytics framework</h3>
+			      <span class="byline">Pablo Manuel García Corzo</span>  
+			  </ul>    
+                        </header>
+                        <p><p>Are traditional monitoring solutions ready for the software defined world (SDN/NFV) and the Internet of things (IoT)? Not always, in our opinion. In many cases they are not ready for the increasing flow of data originating from such a heterogeneous range of sources, in such diverse formats and through ...</p><p>
+                        <footer class="actions">
+			  <a href="http://bluetc.es/en/insights/a-telecoms-blog/entry/pydata-madrid-2016-towards-a-full-stack-python-monitoring-analytics-framework" class="button button-icon button-icon-3">Follow Link</a>
+                        </footer>
+                    </section>
+                </div>
+    </section><!-- /#content -->
+            <p class="paginator">
+                        <a href="http://ozroc.github.io/index.html">&laquo;</a>
+                Page 2 / 2
+            </p>
+</div>
 </div>
 
 				</div>
