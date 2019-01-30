@@ -25,7 +25,7 @@ RELATIVE_URLS = False
 
 MARKUP = ('md', 'ipynb')
 
-PLUGIN_PATH = ['./plugins']
+PLUGIN_PATHS = ['./plugins']
 PLUGINS = ['ipynb.markup', 'share_post']
 
 THEME = 'theme' #'pelican-themes/pelican-bootstrap3'

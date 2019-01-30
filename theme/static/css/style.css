@@ -96,10 +96,25 @@
 		clear: both;
 	}
 	
-	p, ul, ol, dl, table
-	{
-		margin-bottom: 2em;
+	p, ul, ol, dl, table{
+	    margin-bottom: 2em;
+	    border-spacing: 2px;
+	    border-collapse: separate;
+	    padding: 10px;
 	}
+	.dataframe td {
+	    padding: 5px;
+	    border-bottom: 1px solid #ddd;
+	    background-color: #ffffff; 
+	}
+	.dataframe th {
+	    padding: 5px;
+	    border-bottom: 1px solid #ddd;
+	    background-color: #f2f2f2;
+	}
+	
+
+
 	
 	section,
 	article
@@ -1554,10 +1569,16 @@ div.output_unrecognized a:hover {
 
 
 
-.rendered_html tr,
-.rendered_html th,
+.rendered_html tr, {
+    padding: 15px;
+}
+.rendered_html th, {
+    padding: 15px;
+}
 
-.rendered_html td,
+.rendered_html td, {
+    padding: 15px;
+}
 
 
 .rendered_html * + table {
